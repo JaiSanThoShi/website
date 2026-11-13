@@ -1,0 +1,25 @@
+{
+  "title": "ground up",
+  "line": "a podcast i co-host with tharun, about people who built something from the ground up.",
+  "youtube": "https://www.youtube.com/",
+  "episodes": [
+    {
+      "number": 3,
+      "title": "building a brand from a small town",
+      "guest": "guest name",
+      "url": "https://www.youtube.com/"
+    },
+    {
+      "number": 2,
+      "title": "leaving a safe job to start something",
+      "guest": "guest name",
+      "url": "https://www.youtube.com/"
+    },
+    {
+      "number": 1,
+      "title": "why we started ground up",
+      "guest": "tharun & santhoshi",
+      "url": "https://www.youtube.com/"
+    }
+  ]
+}

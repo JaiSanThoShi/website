@@ -1,0 +1,21 @@
+{
+  "linkedin": "https://www.linkedin.com/",
+  "resume": "",
+  "roles": [
+    {
+      "title": "management consultant",
+      "where": "your firm",
+      "when": "2022 –"
+    },
+    {
+      "title": "mba",
+      "where": "business school",
+      "when": "2027 –"
+    },
+    {
+      "title": "undergraduate degree",
+      "where": "your college",
+      "when": "2017 – 21"
+    }
+  ]
+}

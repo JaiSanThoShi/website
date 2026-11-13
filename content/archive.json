@@ -1,0 +1,15 @@
+{
+  "line": "college years and the old blog.",
+  "posts": [
+    {
+      "title": "a post from the old blog",
+      "date": "2019-03-12",
+      "url": ""
+    },
+    {
+      "title": "the very first post",
+      "date": "2017-01-20",
+      "url": ""
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "line": "from sunday afternoons.",
+  "pieces": [
+    {
+      "title": "monsoon window",
+      "year": 2026,
+      "medium": "acrylic",
+      "shape": "portrait",
+      "photo": ""
+    },
+    {
+      "title": "kolam at dawn",
+      "year": 2025,
+      "medium": "gouache",
+      "shape": "square",
+      "photo": ""
+    },
+    {
+      "title": "marina, 6pm",
+      "year": 2025,
+      "medium": "watercolour",
+      "shape": "landscape",
+      "photo": ""
+    },
+    {
+      "title": "study in teal",
+      "year": 2024,
+      "medium": "oil on board",
+      "shape": "portrait",
+      "photo": ""
+    }
+  ]
+}

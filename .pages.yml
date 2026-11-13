@@ -1,0 +1,181 @@
+# Pages CMS configuration: this decides the forms you see at app.pagescms.org
+media:
+  input: images
+  output: /images
+
+content:
+  - name: about
+    label: About me (top of the page)
+    type: file
+    path: content/about.json
+    format: json
+    fields:
+      - { name: name, label: Your name, type: string }
+      - { name: hello, label: Greeting, type: string }
+      - name: intro
+        label: Intro
+        type: text
+        description: "Leave a blank line between paragraphs. Wrap words in ==double equals== to highlight them."
+      - { name: email, label: Email shown on the site, type: string }
+
+  - name: musings
+    label: Musings (Substack posts)
+    type: file
+    path: content/musings.json
+    format: json
+    fields:
+      - { name: line, label: Line under the heading, type: string }
+      - { name: substack, label: Your Substack link, type: string }
+      - name: posts
+        label: Posts
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: date, label: Date, type: date }
+          - { name: url, label: Link to the post on Substack, type: string }
+
+  - name: library
+    label: Library (books and films)
+    type: file
+    path: content/library.json
+    format: json
+    fields:
+      - { name: line, label: Line under the heading, type: string }
+      - name: books
+        label: Books
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: author, label: Author, type: string }
+          - name: shelf
+            label: Shelf
+            type: select
+            options: { values: [reading, read, someday] }
+          - { name: rating, label: "Rating (0 to 5, 0 = no stars)", type: number }
+          - { name: note, label: One line on it, type: string }
+      - name: films
+        label: Films
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: year, label: Year, type: number }
+          - { name: score, label: "Score out of 10", type: number }
+          - { name: note, label: One line on it, type: string }
+
+  - name: travel
+    label: Travel (photo wall)
+    type: file
+    path: content/travel.json
+    format: json
+    fields:
+      - { name: line, label: Line under the heading, type: string }
+      - name: photos
+        label: Photos
+        type: object
+        list: true
+        fields:
+          - { name: place, label: Place, type: string, required: true }
+          - { name: when, label: "When (e.g. dec 2024)", type: string }
+          - { name: photo, label: Photo, type: image }
+          - { name: story, label: A line or two about it, type: text }
+
+  - name: art
+    label: Art (gallery)
+    type: file
+    path: content/art.json
+    format: json
+    fields:
+      - { name: line, label: Line under the heading, type: string }
+      - name: pieces
+        label: Paintings
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: year, label: Year, type: number }
+          - { name: medium, label: "Medium (e.g. acrylic)", type: string }
+          - name: shape
+            label: Shape
+            type: select
+            options: { values: [portrait, square, landscape] }
+          - { name: photo, label: Photo of the painting, type: image }
+
+  - name: podcast
+    label: Ground Up (podcast)
+    type: file
+    path: content/podcast.json
+    format: json
+    fields:
+      - { name: title, label: Heading, type: string }
+      - { name: line, label: Line under the heading, type: string }
+      - { name: youtube, label: YouTube channel link, type: string }
+      - name: episodes
+        label: Episodes
+        type: object
+        list: true
+        fields:
+          - { name: number, label: Episode number, type: number }
+          - { name: title, label: Title, type: string, required: true }
+          - { name: guest, label: Guest, type: string }
+          - { name: url, label: Link to the episode, type: string }
+
+  - name: fitness
+    label: Fitness
+    type: file
+    path: content/fitness.json
+    format: json
+    fields:
+      - { name: text, label: A few lines, type: text }
+      - { name: instagram, label: Instagram link, type: string }
+
+  - name: impact
+    label: Impact
+    type: file
+    path: content/impact.json
+    format: json
+    fields:
+      - name: items
+        label: Projects
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Name, type: string, required: true }
+          - { name: what, label: What it is, type: string }
+          - { name: when, label: "When (e.g. 2026 –)", type: string }
+          - { name: url, label: Link (optional), type: string }
+
+  - name: work
+    label: Work
+    type: file
+    path: content/work.json
+    format: json
+    fields:
+      - { name: linkedin, label: LinkedIn link, type: string }
+      - { name: resume, label: Résumé (PDF), type: file }
+      - name: roles
+        label: Roles and degrees
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: where, label: Where, type: string }
+          - { name: when, label: "When (e.g. 2022 –)", type: string }
+
+  - name: archive
+    label: Archive (old blog)
+    type: file
+    path: content/archive.json
+    format: json
+    fields:
+      - { name: line, label: Line under the heading, type: string }
+      - name: posts
+        label: Old posts
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: date, label: Date, type: date }
+          - { name: url, label: Link (optional), type: string }

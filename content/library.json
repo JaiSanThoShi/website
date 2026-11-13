@@ -1,0 +1,94 @@
+{
+  "line": "what i read and watch. tap a spine or a disc.",
+  "books": [
+    {
+      "title": "Co-Intelligence",
+      "author": "Ethan Mollick",
+      "shelf": "reading",
+      "rating": 0,
+      "note": "halfway in, reading it alongside my own ai experiments."
+    },
+    {
+      "title": "Range",
+      "author": "David Epstein",
+      "shelf": "read",
+      "rating": 5,
+      "note": "a case for being a generalist for longer."
+    },
+    {
+      "title": "Thinking in Systems",
+      "author": "Donella Meadows",
+      "shelf": "read",
+      "rating": 5,
+      "note": "stocks, flows and feedback loops are everywhere."
+    },
+    {
+      "title": "The God of Small Things",
+      "author": "Arundhati Roy",
+      "shelf": "read",
+      "rating": 5,
+      "note": "the language does things i didn't know english could do."
+    },
+    {
+      "title": "Poor Economics",
+      "author": "Banerjee & Duflo",
+      "shelf": "read",
+      "rating": 5,
+      "note": "shaped how i think about giving."
+    },
+    {
+      "title": "Educated",
+      "author": "Tara Westover",
+      "shelf": "read",
+      "rating": 5,
+      "note": "on what education gives you and what it costs."
+    },
+    {
+      "title": "Pachinko",
+      "author": "Min Jin Lee",
+      "shelf": "read",
+      "rating": 4,
+      "note": "four generations and a lot of quiet endurance."
+    },
+    {
+      "title": "Malgudi Days",
+      "author": "R. K. Narayan",
+      "shelf": "read",
+      "rating": 4,
+      "note": "comfort reading."
+    },
+    {
+      "title": "Middlemarch",
+      "author": "George Eliot",
+      "shelf": "someday",
+      "rating": 0,
+      "note": "everyone i admire seems to have read it."
+    }
+  ],
+  "films": [
+    {
+      "title": "Past Lives",
+      "year": 2023,
+      "score": 9,
+      "note": "quiet and devastating."
+    },
+    {
+      "title": "Super Deluxe",
+      "year": 2019,
+      "score": 8,
+      "note": "tamil cinema at its strangest and best."
+    },
+    {
+      "title": "Kumbalangi Nights",
+      "year": 2019,
+      "score": 9,
+      "note": "four brothers, the backwaters, a lot of tenderness."
+    },
+    {
+      "title": "Lost in Translation",
+      "year": 2003,
+      "score": 8,
+      "note": "loneliness in a beautiful city."
+    }
+  ]
+}
