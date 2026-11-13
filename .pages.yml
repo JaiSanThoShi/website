@@ -4,6 +4,59 @@ media:
   output: /images
 
 content:
+  - name: settings
+    label: ✦ Site design (layout, fonts, colours)
+    type: file
+    path: content/settings.json
+    format: json
+    fields:
+      - name: menu
+        label: Where the menu sits
+        type: select
+        options: { values: [top, left] }
+      - name: font
+        label: Font
+        type: select
+        options: { values: [book antiqua, garamond, elegant serif, modern sans, typewriter] }
+      - name: text_size
+        label: Text size
+        type: select
+        options: { values: [small, medium, large] }
+      - name: accent
+        label: Accent colour (links, underlines, cursor)
+        type: select
+        options: { values: [terracotta, plum, forest, ink blue, rose, ochre, charcoal] }
+      - name: background
+        label: Background
+        type: select
+        options: { values: [white, cream, warm grey, blush] }
+      - name: width
+        label: Page width
+        type: select
+        options: { values: [narrow, medium, wide] }
+      - { name: fairy_lights, label: Fairy lights under the menu, type: boolean }
+      - { name: typewriter, label: Type out the greeting, type: boolean }
+      - { name: painted_dots, label: Painted dot before each heading, type: boolean }
+      - name: photo_wall
+        label: Travel photos
+        type: select
+        options: { values: [pegged on strings, simple grid] }
+      - name: gallery_columns
+        label: Art gallery columns
+        type: select
+        options: { values: ["2", "3"] }
+      - name: sections
+        label: Sections (drag to reorder, untick to hide)
+        type: object
+        list: true
+        fields:
+          - name: section
+            label: Section
+            type: select
+            options: { values: [musings, library, travel, art, ground-up, fitness, impact, work, archive] }
+          - { name: label, label: Name shown in the menu and heading, type: string }
+          - { name: show, label: Show on the site, type: boolean }
+
   - name: about
     label: About me (top of the page)
     type: file

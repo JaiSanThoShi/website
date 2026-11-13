@@ -1,0 +1,60 @@
+{
+  "menu": "top",
+  "font": "book antiqua",
+  "text_size": "medium",
+  "accent": "terracotta",
+  "background": "white",
+  "width": "medium",
+  "fairy_lights": true,
+  "typewriter": true,
+  "painted_dots": true,
+  "photo_wall": "pegged on strings",
+  "gallery_columns": "3",
+  "sections": [
+    {
+      "section": "musings",
+      "label": "Musings",
+      "show": true
+    },
+    {
+      "section": "library",
+      "label": "Library",
+      "show": true
+    },
+    {
+      "section": "travel",
+      "label": "Travel",
+      "show": true
+    },
+    {
+      "section": "art",
+      "label": "Art",
+      "show": true
+    },
+    {
+      "section": "ground-up",
+      "label": "Ground Up",
+      "show": true
+    },
+    {
+      "section": "fitness",
+      "label": "Fitness",
+      "show": true
+    },
+    {
+      "section": "impact",
+      "label": "Impact",
+      "show": true
+    },
+    {
+      "section": "work",
+      "label": "Work",
+      "show": true
+    },
+    {
+      "section": "archive",
+      "label": "Archive",
+      "show": true
+    }
+  ]
+}

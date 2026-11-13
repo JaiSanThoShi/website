@@ -7,6 +7,16 @@
 3. Pick a section on the left (Musings, Library, Travel, Art…), change or add entries, upload photos, and press **Save**.
 4. The live site updates about a minute later.
 
+## Changing the layout
+
+Open **✦ Site design** in Pages CMS. From there you can:
+- move the menu to the top or the left
+- pick a font, text size, accent colour, background and page width
+- turn the fairy lights, typewriter greeting and painted dots on or off
+- show travel photos pegged on strings or as a simple grid
+- choose 2 or 3 columns for the art gallery
+- drag sections into a new order, rename them, or untick one to hide it
+
 ## Where things live
 
 - `content/` holds everything you write, one file per section.

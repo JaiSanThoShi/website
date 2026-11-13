@@ -51,7 +51,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .lights .b circle:first-child { fill: #FFD98A; opacity: .45; }
 .lights .b circle:last-child { fill: #F2B54B; }
 @keyframes twinkle { from { opacity: .35; } to { opacity: 1; } }
-.col { max-width: 680px; margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.col { max-width: var(--colw, 680px); margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
 .typed { min-height: 1.2em; }
 .caret { display: inline-block; width: .45em; height: .08em; background: var(--accent); margin-left: 3px; animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
@@ -141,6 +141,25 @@ footer { color: var(--faint); font-size: 13px; font-style: italic; }
   .gallery { gap: 26px 16px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+
+/* design switches (set from the Site design form) */
+body.no-lights .lights { display: none; }
+body.no-dots h2::before { display: none; }
+body.wall-grid .strings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+body.wall-grid .string { display: contents; }
+body.wall-grid .string::before, body.wall-grid .pol::before { display: none; }
+body.wall-grid .pol { width: auto; transform: none; }
+body.gallery-2 .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 900px) {
+  body.menu-left .top { position: fixed; top: 0; left: 0; bottom: 0; width: 210px; background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  body.menu-left .top-in { flex-direction: column; align-items: flex-start; gap: 22px; height: 100%; justify-content: center; padding-left: max(28px, env(safe-area-inset-left, 0px)); }
+  body.menu-left #topnav { flex-direction: column; gap: 6px; margin-left: 0; overflow: visible; }
+  body.menu-left #topnav a { width: fit-content; }
+  body.menu-left .lights { position: absolute; top: 0; right: -11px; width: 22px; height: 100%; }
+  body.menu-left .col { margin-left: max(240px, calc((100vw - var(--colw, 680px)) / 2)); }
+}
+body { background: var(--bg); }
+.top { background: color-mix(in srgb, var(--bg) 94%, transparent); }
 </style>
 </head>
 <body>
@@ -157,7 +176,7 @@ footer { color: var(--faint); font-size: 13px; font-style: italic; }
    one file per section. Edit them in Pages CMS (app.pagescms.org).
    This file only decides how they look.
    ════════════════════════════════════════════════════════════════ */
-const FILES = ["about", "musings", "library", "travel", "art", "podcast", "fitness", "impact", "work", "archive"];
+const FILES = ["settings", "about", "musings", "library", "travel", "art", "podcast", "fitness", "impact", "work", "archive"];
 const SECTIONS = [["musings", "Musings"], ["library", "Library"], ["travel", "Travel"], ["art", "Art"],
   ["ground-up", "Ground Up"], ["fitness", "Fitness"], ["impact", "Impact"], ["work", "Work"], ["archive", "Archive"]];
 
@@ -174,6 +193,58 @@ const ext = (href, text) => href ? `<a class="inline-out" href="${esc(href)}" ta
 const para = t => String(t || "").split(/\n\s*\n/).map(p => `<p>${esc(p.trim()).replace(/==(.+?)==/g, (m, w, i) => `<mark>${w}</mark>`)}</p>`).join("");
 const byDate = (a, b) => String(b.date || "").localeCompare(String(a.date || ""));
 
+
+/* ════════════ DESIGN: everything in content/settings.json ════════════ */
+const ACCENTS = { terracotta: "#B5522A", plum: "#7A3E6B", forest: "#2F6B4F", "ink blue": "#2F4B7C", rose: "#B8475A", ochre: "#A8761E", charcoal: "#3A3632" };
+const BACKGROUNDS = { white: "#FFFFFF", cream: "#FBF7EF", "warm grey": "#F5F3F0", blush: "#FCF5F3" };
+const FONTS = {
+  "book antiqua": { stack: '"Book Antiqua", "Palatino Linotype", Palatino, "URW Palladio L", P052, Georgia, serif' },
+  "garamond": { stack: '"EB Garamond", Garamond, Georgia, serif', google: "EB+Garamond:ital,wght@0,400;0,500;1,400" },
+  "modern sans": { stack: '"Instrument Sans", "Helvetica Neue", system-ui, sans-serif', google: "Instrument+Sans:ital,wght@0,400;0,500;1,400" },
+  "typewriter": { stack: '"Courier Prime", "Courier New", monospace', google: "Courier+Prime:ital@0;1" },
+  "elegant serif": { stack: '"Cormorant Garamond", Garamond, Georgia, serif', google: "Cormorant+Garamond:ital,wght@0,400;0,500;1,400" }
+};
+const WIDTHS = { narrow: "600px", medium: "680px", wide: "820px" };
+const SIZES = { small: "16px", medium: "17px", large: "18.5px" };
+
+function applyDesign(S) {
+  const root = document.documentElement.style, body = document.body.classList;
+  const font = FONTS[S.font] || FONTS["book antiqua"];
+  if (font.google && !document.getElementById("gfont")) {
+    const l = document.createElement("link"); l.id = "gfont"; l.rel = "stylesheet";
+    l.href = `https://fonts.googleapis.com/css2?family=${font.google}&display=swap`; document.head.appendChild(l);
+  }
+  root.setProperty("--font", font.stack);
+  root.setProperty("--accent", ACCENTS[S.accent] || (/^#/.test(S.accent || "") ? S.accent : ACCENTS.terracotta));
+  root.setProperty("--bg", BACKGROUNDS[S.background] || "#FFFFFF");
+  root.setProperty("--colw", WIDTHS[S.width] || WIDTHS.medium);
+  document.body.style.fontSize = SIZES[S.text_size] || SIZES.medium;
+  body.toggle("menu-left", S.menu === "left");
+  body.toggle("no-lights", S.fairy_lights === false);
+  body.toggle("no-dots", S.painted_dots === false);
+  body.toggle("no-type", S.typewriter === false);
+  body.toggle("wall-grid", S.photo_wall === "simple grid");
+  body.toggle("gallery-2", String(S.gallery_columns) === "2");
+}
+
+function arrangeSections(S, P) {
+  const main = document.getElementById("main"), footer = main.querySelector("footer");
+  const DEFAULT = SECTIONS.map(([id, label]) => ({ section: id, label, show: true }));
+  const list = Array.isArray(S.sections) && S.sections.length ? S.sections : DEFAULT;
+  const seen = new Set(), nav = [];
+  list.forEach(item => {
+    const el = document.getElementById(item.section); if (!el || seen.has(item.section)) return;
+    seen.add(item.section);
+    if (item.show === false) { el.remove(); return; }
+    main.insertBefore(el, footer);
+    const label = item.label || (SECTIONS.find(x => x[0] === item.section) || [, item.section])[1];
+    const h2 = el.querySelector("h2"); if (h2 && item.label) h2.textContent = item.label;
+    nav.push(`<a href="#${item.section}" data-id="${item.section}">${esc(label)}</a>`);
+  });
+  SECTIONS.forEach(([id]) => { if (!seen.has(id)) document.getElementById(id)?.remove(); });
+  document.getElementById("topnav").innerHTML = nav.join("");
+}
+
 Promise.all(FILES.map(f => fetch(`content/${f}.json`, { cache: "no-cache" }).then(r => r.ok ? r.json() : {}).catch(() => ({}))))
   .then(arr => render(Object.fromEntries(FILES.map((f, i) => [f, arr[i] || {}]))));
 
@@ -181,6 +252,7 @@ function render(C) {
   const A = C.about, M = C.musings, Lb = C.library, T = C.travel, Ar = C.art, P = C.podcast, F = C.fitness, I = C.impact, W = C.work, Ac = C.archive;
   const books = Lb.books || [], films = Lb.films || [], photos = T.photos || [], pieces = Ar.pieces || [];
   document.title = A.name || document.title;
+  applyDesign(C.settings || {});
 
   const shortName = String(A.name || "Jai Santhoshi").split(" ").slice(0, 2).join(" ");
   document.getElementById("wordmark").innerHTML = `${esc(shortName)}<span>.</span>`;
@@ -262,7 +334,7 @@ function render(C) {
 
   (function type() {
     const node = document.querySelector("#typed .txt"), text = A.hello || "";
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { node.textContent = text; return; }
+    if (document.body.classList.contains("no-type") || matchMedia("(prefers-reduced-motion: reduce)").matches) { node.textContent = text; document.querySelector("#typed .caret")?.remove(); return; }
     let i = 0; (function tick() { node.textContent = text.slice(0, ++i); if (i < text.length) setTimeout(tick, 75 + Math.random() * 45); })();
   })();
 
@@ -294,6 +366,7 @@ function render(C) {
   document.querySelectorAll(".pol").forEach(p => p.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); p.click(); } }));
 
   /* underline the section being read */
+  arrangeSections(C.settings || {}, P);
   const links = [...document.querySelectorAll("#topnav a")];
   const spy = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) links.forEach(l => l.classList.toggle("on", l.dataset.id === en.target.id)); }), { rootMargin: "-35% 0px -60% 0px" });
   document.querySelectorAll("main section").forEach(s => spy.observe(s));
