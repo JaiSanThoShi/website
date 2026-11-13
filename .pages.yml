@@ -24,7 +24,7 @@ content:
       - name: font
         label: Font
         type: select
-        options: { values: [book antiqua, garamond, elegant serif, modern sans, typewriter] }
+        options: { values: [outfit & google sans, book antiqua, garamond, elegant serif, modern sans, typewriter] }
       - name: text_size
         label: Text size
         type: select

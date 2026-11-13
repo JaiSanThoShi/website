@@ -1,5 +1,5 @@
 {
-  "font": "book antiqua",
+  "font": "outfit & google sans",
   "text_size": "medium",
   "accent": "terracotta",
   "background": "cream",
@@ -17,7 +17,7 @@
     },
     {
       "page": "work",
-      "label": "My 9–5",
+      "label": "My 9\u20135",
       "show": true
     },
     {

@@ -6,7 +6,7 @@
 <title>Jai Santhoshi Sathish Kumar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Google+Sans+Flex:wght@400;500;600&family=Google+Sans+Code:wght@400;500&display=swap">
 <style>
 /* Layout: a warm side panel (name, accent dot, morning/night switch, a hello, six pixel-icon pages) beside one page at a time.
    Book Antiqua for reading, a small mono for dates and labels, one accent the visitor can change. */
@@ -23,8 +23,9 @@
   --accent: #B5522A;
   --accent-ink: var(--accent);
   --wood: #A9825C; --wood-dark: #7C5A3B;
-  --font: "Book Antiqua", "Palatino Linotype", Palatino, "URW Palladio L", P052, Georgia, serif;
-  --mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font: "Google Sans Flex", "Google Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --head: "Outfit", "Google Sans Flex", system-ui, sans-serif;
+  --mono: "Google Sans Code", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --colw: 760px;
   color-scheme: light;
 }
@@ -205,6 +206,14 @@ dialog::backdrop { background: rgba(20, 17, 14, .6); }
   .pol { width: 104px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+
+/* headings in Outfit, like the reference */
+.page-title h1, h2, .card h3 { font-family: var(--head); }
+.page-title h1 { font-weight: 800; letter-spacing: -.02em; }
+h2 { font-weight: 700; }
+.card h3 { font-weight: 600; }
+.lede { font-style: normal; }
+.panel nav a { font-family: var(--font); font-weight: 500; }
 </style>
 <script>
   try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -274,6 +283,7 @@ function pixel(name, cls = "") {
 const ACCENTS = { terracotta: "#B5522A", plum: "#7A3E6B", forest: "#2F6B4F", "ink blue": "#2F4B7C", rose: "#B8475A", ochre: "#A8761E", charcoal: "#3A3632" };
 const BACKGROUNDS = { white: "#FFFFFF", cream: "#FFFDF8", "warm grey": "#F7F5F2", blush: "#FFF8F6" };
 const FONTS = {
+  "outfit & google sans": { stack: '"Google Sans Flex", "Google Sans", system-ui, -apple-system, "Segoe UI", sans-serif', head: '"Outfit", "Google Sans Flex", system-ui, sans-serif' },
   "book antiqua": { stack: '"Book Antiqua", "Palatino Linotype", Palatino, "URW Palladio L", P052, Georgia, serif' },
   "garamond": { stack: '"EB Garamond", Garamond, Georgia, serif', google: "EB+Garamond:ital,wght@0,400;0,600;1,400" },
   "modern sans": { stack: '"Instrument Sans", "Helvetica Neue", system-ui, sans-serif', google: "Instrument+Sans:ital,wght@0,400;0,600;1,400" },
@@ -286,9 +296,10 @@ let accentList = Object.values(ACCENTS), accentIdx = 0;
 
 function applyDesign(S) {
   const root = document.documentElement.style, body = document.body.classList;
-  const font = FONTS[S.font] || FONTS["book antiqua"];
+  const font = FONTS[S.font] || FONTS["outfit & google sans"];
   if (font.google) { const l = document.createElement("link"); l.rel = "stylesheet"; l.href = `https://fonts.googleapis.com/css2?family=${font.google}&display=swap`; document.head.appendChild(l); }
   root.setProperty("--font", font.stack);
+  root.setProperty("--head", font.head || font.stack);
   let accent = ACCENTS[S.accent] || (/^#/.test(S.accent || "") ? S.accent : ACCENTS.terracotta);
   try { accent = localStorage.getItem("accent") || accent; } catch (e) {}
   accentIdx = Math.max(0, accentList.indexOf(accent));
