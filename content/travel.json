@@ -1,39 +1,39 @@
 {
-  "line": "a few photos pegged to the wall. tap one to see it bigger.",
+  "line": "A few photos pegged to the wall. Tap one to see it bigger.",
   "photos": [
     {
-      "place": "hampi",
-      "when": "dec 2024",
+      "place": "Hampi",
+      "when": "Dec 2024",
       "photo": "",
       "story": ""
     },
     {
-      "place": "ladakh",
-      "when": "jun 2023",
+      "place": "Ladakh",
+      "when": "Jun 2023",
       "photo": "",
       "story": ""
     },
     {
-      "place": "kyoto",
-      "when": "apr 2025",
+      "place": "Kyoto",
+      "when": "Apr 2025",
       "photo": "",
       "story": ""
     },
     {
-      "place": "tokyo",
-      "when": "apr 2025",
+      "place": "Tokyo",
+      "when": "Apr 2025",
       "photo": "",
       "story": ""
     },
     {
-      "place": "goa",
-      "when": "jan 2024",
+      "place": "Goa",
+      "when": "Jan 2024",
       "photo": "",
       "story": ""
     },
     {
-      "place": "pondicherry",
-      "when": "aug 2022",
+      "place": "Pondicherry",
+      "when": "Aug 2022",
       "photo": "",
       "story": ""
     }
