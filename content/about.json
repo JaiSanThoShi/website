@@ -1,15 +1,20 @@
 {
   "name": "Jai Santhoshi Sathish Kumar",
   "hello": "Hey, I'm Santhoshi!",
-  "intro": "Hi there! I'm Jai Santhoshi Sathish Kumar. I hail from ==Erode, Tamil Nadu==, which truly is the Indian version of Stars Hollow. I grew up there for 18 years, moved to Chennai for college at ==IIT Madras==, then to Bangalore for my first job, travelling back and forth to Singapore for work. Right now I'm a consultant at ==Bain==.\n\nIIT Madras taught me one thing above all: life is what you make out of it. I played squash, ran Asia's largest student-run festival, became the first female cultural affairs secretary, started a social enterprise (it failed) and an NGO (it survived).\n\nOutside work I love science and maths, writing and reading, social impact, music (I'm learning the violin) and my friends and family.",
+  "intro": "Hi there! I'm Jai Santhoshi Sathish Kumar. I hail from ==Erode, Tamil Nadu==, which truly is the Indian version of Stars Hollow. I grew up there for 18 years, moved to Chennai for college at ==IIT Madras==, then to Bangalore for my first job, travelling back and forth to Singapore for work. Right now I'm an Associate Consultant at ==Bain==, working across India and South-East Asia.\n\nIIT Madras taught me one thing above all: life is what you make out of it. I played squash, ran Asia's largest student-run festival, became the first female cultural affairs secretary, and founded ==HOPE Foundation==, an NGO for sustainable menstruation.\n\nOutside work I love science and maths, writing and reading, social impact, music (I'm learning the violin) and my friends and family.",
   "email": "sk.jaisanthoshi@gmail.com",
-  "tagline": "Consultant at Bain · IIT Madras alum · writer, painter, squash player.",
-  "panel": "I'm ==Santhoshi==, a consultant at Bain from Erode who writes, paints and plays squash. Welcome to my corner of the internet.",
+  "tagline": "Associate Consultant at Bain · IIT Madras '23 · founder of HOPE Foundation.",
+  "panel": "I'm ==Santhoshi==, a consultant at Bain from Erode. I founded HOPE Foundation, wrote a novel, and play squash. Welcome to my corner of the internet.",
   "timeline": [
     {
       "when": "2005 – 2017",
       "title": "The Indian Public School",
       "where": "Erode"
+    },
+    {
+      "when": "2015",
+      "title": "Published in The Hindu Open Page",
+      "where": "“Been grateful enough for it all?”"
     },
     {
       "when": "2017 – 2019",
@@ -19,43 +24,48 @@
     {
       "when": "2019 – 2023",
       "title": "B.Tech, Metallurgical & Materials Engineering",
-      "where": "IIT Madras"
+      "where": "IIT Madras, with minors in Economics and Personal & Professional Development"
     },
     {
       "when": "2020",
-      "title": "Published my novel, Carnival",
-      "where": "White Falcon Publishing"
+      "title": "Founded HOPE Foundation, and published my novel, Carnival",
+      "where": ""
     },
     {
-      "when": "2022",
+      "when": "2022 – 2023",
       "title": "Institute Cultural Affairs Secretary",
-      "where": "IIT Madras, the first woman in the role"
+      "where": "IIT Madras, the first woman in 64 years"
     },
     {
-      "when": "After IIT",
-      "title": "Founder's office and growth team",
-      "where": "Blaze AI"
+      "when": "2023",
+      "title": "Institute Blues Medal",
+      "where": "Best outgoing student among 3,000+"
     },
     {
-      "when": "Now",
-      "title": "Consultant",
-      "where": "Bain & Company"
+      "when": "2023",
+      "title": "Deferred MBA admit, The Wharton School",
+      "where": "Moelis Advance Access Program"
     },
     {
-      "when": "Next",
-      "title": "MBA",
-      "where": "Business school"
+      "when": "Jul – Dec 2023",
+      "title": "Growth and Product, founder's office",
+      "where": "Blaze AI (YC W22)"
+    },
+    {
+      "when": "Jan 2024 – now",
+      "title": "Associate Consultant",
+      "where": "Bain & Company, India and Singapore"
     }
   ],
   "hobbies": [
     {
       "name": "Squash",
-      "text": "I found it at IIT Madras and it felt perfect. I played Inter IIT 2022 for the Madras Hawks.",
+      "text": "I found it at IIT Madras and it felt perfect. I played the 55th Inter-IIT Sports Meet in 2022, where our women's team came 4th.",
       "link": "#read-squash"
     },
     {
       "name": "Writing & reading",
-      "text": "I wrote and published a novel, Carnival, and have blogged since 2015.",
+      "text": "I wrote a 35,000-word novel, Carnival, edited The Fifth Estate at IIT Madras, and have blogged since 2015.",
       "link": "#blog"
     },
     {

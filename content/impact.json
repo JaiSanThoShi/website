@@ -2,15 +2,21 @@
   "items": [
     {
       "title": "Carnival, my novel",
-      "what": "A story that came to me at a temple fest in my grandparents' hometown. Published November 2020.",
+      "what": "A 35,000-word fiction novel that came to me at a temple fest in my grandparents' hometown.",
       "when": "2020",
       "url": "https://www.amazon.in/dp/1636400795"
     },
     {
-      "title": "My NGO",
-      "what": "Started at IIT Madras. It survived, and I'm figuring out next steps.",
-      "when": "IIT Madras",
+      "title": "The Fifth Estate",
+      "what": "Editor of IIT Madras's official newsbody. Wrote 5+ articles with 10K+ views and led a team of 15.",
+      "when": "2020 – 2022",
       "url": ""
+    },
+    {
+      "title": "Been grateful enough for it all?",
+      "what": "My article in The Hindu's Open Page.",
+      "when": "2015",
+      "url": "http://www.thehindu.com/opinion/open-page/been-grateful-enough-for-it-all/article8037662.ece"
     },
     {
       "title": "Karpi",
@@ -25,5 +31,5 @@
       "url": ""
     }
   ],
-  "line": "Things I've built or started, mostly for causes I care about."
+  "line": "Things I've made: writing, books and side projects."
 }

@@ -18,7 +18,7 @@ content:
           - name: page
             label: Page
             type: select
-            options: { values: [me, work, travel, podcast, blog, projects] }
+            options: { values: [me, work, impact, travel, podcast, blog, projects] }
           - { name: label, label: Name in the side panel, type: string }
           - { name: show, label: Show on the site, type: boolean }
       - name: font
@@ -257,6 +257,35 @@ content:
           - { name: tags, label: "Tags, separated by commas", type: string }
           - { name: cover, label: Cover photo, type: image }
           - { name: body, label: The post, type: rich-text }
+
+  - name: social
+    label: Impact
+    type: file
+    path: content/social.json
+    format: json
+    fields:
+      - { name: line, label: Line under the heading, type: string }
+      - name: stats
+        label: Headline numbers
+        type: object
+        list: true
+        fields:
+          - { name: number, label: "Number (e.g. 1M+)", type: string }
+          - { name: label, label: What it counts, type: string }
+      - name: items
+        label: Impact work
+        type: object
+        list: true
+        fields:
+          - name: kind
+            label: Group
+            type: select
+            options: { values: [social impact, public policy, leadership] }
+          - { name: title, label: Name, type: string, required: true }
+          - { name: role, label: Your role, type: string }
+          - { name: when, label: "When (e.g. 2020 – now)", type: string }
+          - { name: what, label: What you did, type: text }
+          - { name: url, label: Link (optional), type: string }
 
   - name: impact
     label: Projects

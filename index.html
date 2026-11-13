@@ -232,6 +232,16 @@ h2 { font-weight: 700; }
 .card.college { text-decoration: none; padding: 0 0 16px; overflow: hidden; }
 .card.college > *:not(.cover) { padding: 0 16px; }
 .card.college .cover { display: block; aspect-ratio: 16/10; background-size: cover; background-position: center; margin-bottom: 6px; }
+
+/* impact */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.stat { background: var(--soft); border-radius: 14px; padding: 16px 18px; display: grid; gap: 2px; }
+.stat b { font-family: var(--head); font-weight: 800; font-size: 32px; line-height: 1.05; color: var(--accent-ink); letter-spacing: -.02em; }
+.stat span { font-size: 14.5px; color: var(--muted); line-height: 1.35; }
+.impact-list { display: grid; gap: 12px; }
+.impact-card { gap: 6px; }
+.ic-top { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.role { font-size: 14.5px; font-weight: 600; color: var(--accent-ink); }
 </style>
 <script>
   try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -262,8 +272,8 @@ h2 { font-weight: 700; }
    Words, links, photos and design choices all live in content/,
    edited in Pages CMS (app.pagescms.org). This file only draws them.
    ════════════════════════════════════════════════════════════════ */
-const FILES = ["settings", "about", "musings", "library", "travel", "art", "podcast", "impact", "work", "archive"];
-const PAGES = [["me", "Get to know me"], ["work", "My 9–5"], ["travel", "Travel"], ["podcast", "Podcast"], ["blog", "Blog"], ["projects", "Projects"]];
+const FILES = ["settings", "about", "musings", "library", "travel", "art", "podcast", "impact", "social", "work", "archive"];
+const PAGES = [["me", "Get to know me"], ["work", "My 9–5"], ["impact", "Impact"], ["travel", "Travel"], ["podcast", "Podcast"], ["blog", "Blog"], ["projects", "Projects"]];
 const DOTS = ["#E8B86A", "#B8475A", "#7FA7C9", "#E39A8F", "#8C6BC0", "#9DBFA8", "#D9822B", "#4F6D7A"];
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -288,6 +298,7 @@ const MAPS = {
   travel: ["....kkkk....", "..kkwwGGkk..", ".kwwwGGGwwk.", ".kwGGwGwwwk.", "kwwGGGwwwGGk", "kwwwGGwwGGGk", "kGwwwwwwGGGk", "kGGwwwwwwGGk", ".kGGwwwwwwk.", ".kwwwGGwwwk.", "..kkwwwwkk..", "....kkkk...."],
   podcast: ["....kkkk....", "...kmmmmk...", "...kmhmhk...", "...kmmmmk...", "...kmhmhk...", ".k.kmmmmk.k.", ".k..kkkk..k.", "..k......k..", "...kkkkkk...", ".....kk.....", "....kkkk....", "............"],
   blog: ["kkkkkkkkk...", "kWWWWWWWk.YY", "kWlllllWk.YY", "kWWWWWWWkYY.", "kWlllllWYY..", "kWWWWWWYYk..", "kWllllYYWk..", "kWWWWRWWWk..", "kWlllllWWk..", "kWWWWWWWWk..", "kkkkkkkkkk..", "............"],
+  impact: ["............", "..RR....RR..", ".RRRR..RRRR.", "RRWRRRRRRRRR", "RWRRRRRRRRRR", "RRRRRRRRRRRR", ".RRRRRRRRRR.", "..RRRRRRRR..", "...RRRRRR...", "....RRRR....", ".....RR.....", "............"],
   projects: ["............", ".....GG.....", "...GGGG.GG..", "..GGG.GGGGG.", "...GG.GGG...", ".....G......", ".....G......", "..tttttttt..", "..tTTTTTTt..", "...tTTTTt...", "...tTTTTt...", "....tttt...."],
   chai: ["................", "....s...s.......", ".....s...s......", "....s...s.......", "................", "..oooooooooo....", "..occcccccco....", "..oBBBBBBBBooo..", "..oBBBBBBBBo.o..", "..oaaaaaaaao.o..", "..oBBBBBBBBooo..", "...oBBBBBBo.....", "....oooooo......", ".pppppppppppp...", "................", "................"]
 };
@@ -420,6 +431,13 @@ const VIEW = {
       ${item.date || item.tags ? `<div class="meta-line"><span class="mono muted">${fmt(item.date)}</span>${list(item.tags).map(x => `<span class="pill">${esc(x)}</span>`).join("")}</div>` : ""}
       <div class="post-html">${String(item.body || "").replace(/src="\/+/g, 'src="')}</div></article>
       <a class="s-link" href="#${back[0]}">← ${esc(labelOf(back[0]) || back[1])}</a>`;
+  },
+  impact() {
+    const X = C.social || {}, items = X.items || [];
+    const kinds = [...new Set(items.map(i => i.kind || "social impact"))];
+    return `${title("impact", labelOf("impact"))}${X.line ? `<p class="lede">${esc(X.line)}</p>` : ""}
+      ${(X.stats || []).length ? `<div class="stats">${X.stats.map(t => `<div class="stat"><b>${esc(t.number)}</b><span>${esc(t.label)}</span></div>`).join("")}</div>` : ""}
+      ${kinds.map((k, ki) => block(k.charAt(0).toUpperCase() + k.slice(1), `<div class="impact-list">${items.filter(i => (i.kind || "social impact") === k).map(i => `<div class="card impact-card"><div class="ic-top"><h3>${esc(i.title)}</h3><span class="mono muted">${esc(i.when)}</span></div>${i.role ? `<span class="role">${esc(i.role)}</span>` : ""}<p>${esc(i.what)}</p>${i.url ? `<a class="btn" href="${esc(i.url)}"${ext(i.url)}>${ext(i.url) ? "Visit ↗" : "Read more →"}</a>` : ""}</div>`).join("")}</div>`, "", ki)).join("")}`;
   },
   projects() {
     const I = C.impact;

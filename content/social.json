@@ -1,0 +1,79 @@
+{
+  "line": "Building something for humanity is what I care about most.",
+  "stats": [
+    {
+      "number": "1M+",
+      "label": "women reached by suSTAIN"
+    },
+    {
+      "number": "1K+",
+      "label": "menstrual kits given"
+    },
+    {
+      "number": "40+",
+      "label": "HOPE Foundation members"
+    },
+    {
+      "number": "11K+",
+      "label": "students who elected me"
+    }
+  ],
+  "items": [
+    {
+      "kind": "social impact",
+      "title": "HOPE Foundation",
+      "role": "Founder, Board of Directors",
+      "when": "2020 – now",
+      "what": "A Tamil Nadu non-profit with 40+ members, raising awareness about sustainable menstruation. Our suSTAIN campaign educated 1M+ women, and we raised funds to give 1K+ women menstrual kits, with a gender-inclusive approach.",
+      "url": ""
+    },
+    {
+      "kind": "social impact",
+      "title": "She Group",
+      "role": "Founding member",
+      "when": "2021 – 2022",
+      "what": "A social-tech startup helping married women become financially independent. We won a USD 4K grant to build a digital capability network and mentored women into jobs.",
+      "url": ""
+    },
+    {
+      "kind": "social impact",
+      "title": "Mkono",
+      "role": "Business and entrepreneurship mentor",
+      "when": "Jul 2023 – now",
+      "what": "A Canadian non-profit giving interest-free loans and mentorship to Kenyan entrepreneurs. I mentor an agri-tech founder on business development and digital tools.",
+      "url": ""
+    },
+    {
+      "kind": "social impact",
+      "title": "Bain Social Impact & Women at Bain",
+      "role": "Volunteer",
+      "when": "2024 – now",
+      "what": "Volunteering alongside client work, plus the Bangalore culture team.",
+      "url": ""
+    },
+    {
+      "kind": "public policy",
+      "title": "Policy in Action Fellow, YLAC",
+      "role": "Fellow",
+      "when": "Nov – Dec 2021",
+      "what": "Drafted a policy on regulating crypto assets for Dr. Amar Patnaik, MP, to present in the Indian Parliament.",
+      "url": ""
+    },
+    {
+      "kind": "public policy",
+      "title": "Oxford Policy Advisory Group",
+      "role": "Policy drafting",
+      "when": "May – Jul 2021",
+      "what": "Drafted a policy to strengthen Tamil Nadu's e-Governance framework.",
+      "url": ""
+    },
+    {
+      "kind": "leadership",
+      "title": "Institute Cultural Affairs Secretary, IIT Madras",
+      "role": "Elected representative",
+      "when": "2022 – 2023",
+      "what": "The first woman in 64 years to lead the cultural sphere. Led Saarang, India's largest student-run fest (~800 coordinators, 100K+ footfall), hosted the Inter-IIT Cultural Meet (3K+ participants), and raised USD 250K+ from alumni for a Central Cultural Building.",
+      "url": "#read-insti"
+    }
+  ]
+}

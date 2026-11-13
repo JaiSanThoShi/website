@@ -3,20 +3,34 @@
   "resume": "",
   "roles": [
     {
-      "title": "Consultant",
-      "where": "Bain & Company",
-      "when": "Now",
-      "what": "Healthcare strategy across providers and services.",
+      "title": "Associate Consultant",
+      "where": "Bain & Company, India & Singapore",
+      "when": "Jan 2024 – now",
+      "what": "Healthcare and pharma cases: manufacturing excellence, Data & AI roadmaps, organisation design, go-to-market strategy and due diligence. A year on transfer to the Singapore office (Aug 2024 – Aug 2025). Winner of the India Results Challenge 2025.",
       "link": ""
     },
     {
-      "title": "Founder's office & growth team",
-      "where": "Blaze AI",
-      "when": "6 months, after IIT",
-      "what": "Amazing folks, chai breaks, huddles, poha, and their attempts at teaching me to code.",
+      "title": "Growth and Product, founder's office",
+      "where": "Blaze AI (YC W22), India & USA",
+      "when": "Jul – Dec 2023",
+      "what": "Built the KPI dashboard and product analytics, wrote three State of Web3 reports and 10+ playbooks with 50K+ views, and represented Blaze at India Blockchain Week.",
+      "link": ""
+    },
+    {
+      "title": "Associate Consultant Intern",
+      "where": "Bain & Company, India",
+      "when": "May – Jul 2022",
+      "what": "Go-to-market strategy and account planning. Accepted a full-time offer.",
+      "link": ""
+    },
+    {
+      "title": "Associate Intern",
+      "where": "Vertex Ventures, India & SEA",
+      "when": "Dec 2021 – Jan 2022",
+      "what": "An investment thesis on Gen-Z trends in South-East Asia, and a resource hub of 2K+ templates and reports for founders.",
       "link": ""
     }
   ],
-  "intro": "I'm at Bain, bleeding red. Consulting, business, strategy, Excel. I've dabbled across various legs of healthcare, from providers to services, and hope to keep doing so for quite a while.",
-  "skills": "consulting, strategy, healthcare, problem solving, Excel, leading large teams"
+  "intro": "I'm an Associate Consultant at Bain & Company, mostly in healthcare and pharma, across India and South-East Asia. Before that I worked in a startup founder's office and in venture capital.",
+  "skills": "strategy, healthcare & pharma, operational excellence, go-to-market, due diligence, change management, growth & analytics, writing"
 }
