@@ -201,14 +201,39 @@ content:
       - { name: line, label: Line under the heading, type: string }
       - { name: youtube, label: YouTube channel link, type: string }
       - name: episodes
-        label: Episodes
+        label: Episodes (the highest number shows as the latest)
         type: object
         list: true
         fields:
           - { name: number, label: Episode number, type: number }
           - { name: title, label: Title, type: string, required: true }
           - { name: guest, label: Guest, type: string }
-          - { name: url, label: Link to the episode, type: string }
+          - { name: company, label: Guest's company, type: string }
+          - { name: date, label: Date, type: date }
+          - { name: video, label: "YouTube link of the full episode", type: string }
+          - { name: summary, label: A few lines about it, type: text }
+          - name: clips
+            label: Clips and trailers
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: video, label: YouTube link, type: string }
+      - name: launch
+        label: Launch video
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: video, label: YouTube link, type: string }
+          - { name: date, label: Date, type: date }
+      - name: more
+        label: More from the channel
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: video, label: YouTube link, type: string }
+          - { name: date, label: Date, type: date }
 
   - name: musings
     label: "Blog: Substack posts"

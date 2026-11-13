@@ -1,25 +1,95 @@
 {
-  "title": "Ground Up",
-  "line": "A podcast I co-host with Tharun, about people who built something from the ground up.",
-  "youtube": "https://www.youtube.com/",
+  "title": "The Ground Up Podcast",
+  "line": "Tharun and I talk to the minds behind brilliantly built businesses, born from boring, unconventional beginnings. From Coimbatore and Erode to everywhere.",
+  "youtube": "https://www.youtube.com/@TheGroundUpPodcast2025",
+  "launch": {
+    "title": "Ground Up by Tharun & Jai Santhoshi: Launch & Introduction",
+    "video": "WaoT-06nBvQ",
+    "date": "2025-07-05"
+  },
   "episodes": [
     {
       "number": 3,
-      "title": "Building a brand from a small town",
-      "guest": "Guest name",
-      "url": "https://www.youtube.com/"
+      "title": "How Enterprise Tech Businesses Are Actually Built in Coimbatore",
+      "guest": "Prashanth Subramaniam",
+      "company": "Quadra Systems",
+      "date": "2026-02-06",
+      "video": "-Dbh_IsKpi0",
+      "summary": "What does it really take to build an enterprise tech company from a Tier-2 city, without capital and without shortcuts? We sit down with Prashanth, founder of Quadra Systems.",
+      "clips": [
+        {
+          "title": "Trailer: Leadership, decisions & building from day one",
+          "video": "Skk0dFIQScM"
+        }
+      ]
     },
     {
       "number": 2,
-      "title": "Leaving a safe job to start something",
-      "guest": "Guest name",
-      "url": "https://www.youtube.com/"
+      "title": "The Arche Global Story: Grounded in Coimbatore, Global in Vision",
+      "guest": "Mahalingam Ramasamy",
+      "company": "Arche Global (formerly Netcon)",
+      "date": "2025-10-10",
+      "video": "Mx5a_IUskr4",
+      "summary": "Mahalingam Ramasamy is the founder and MD of Arche Global, a digital transformation company from Coimbatore doing ₹300 crores in revenue. He dreamt beyond being an engineer.",
+      "clips": [
+        {
+          "title": "Declining 2 jobs to building a ₹300 crore company",
+          "video": "MVgAWQ65rnE"
+        },
+        {
+          "title": "Connecting campus and life: Maha's 90s REC Trichy journey",
+          "video": "hoY5RAbYBqk"
+        },
+        {
+          "title": "Rapid fire with Mahalingam Ramasamy",
+          "video": "bCjUsvvXHRY"
+        }
+      ]
     },
     {
       "number": 1,
-      "title": "Why we started ground up",
-      "guest": "Tharun & Santhoshi",
-      "url": "https://www.youtube.com/"
+      "title": "Coffee Table Chat with a Self-Made Millionaire and a Business Queen",
+      "guest": "Vishnu & Nishta",
+      "company": "Emerald Holdings, JewelOne",
+      "date": "2025-07-25",
+      "video": "S-Wn0wsyifs",
+      "summary": "Tharun and I candidly talk business, relationships, startups and life with Nishta and Vishnu. Vishnu is a self-made millionaire and Nishta leads one of the largest businesses in Coimbatore.",
+      "clips": [
+        {
+          "title": "The fun and struggles of running a large business",
+          "video": "ZvQ1NZJypEg"
+        },
+        {
+          "title": "Coffee table chat, part two",
+          "video": "98FUG43wc-g"
+        },
+        {
+          "title": "Vishnu and Nishta",
+          "video": "bHT2JRzHeB0"
+        }
+      ]
+    }
+  ],
+  "more": [
+    {
+      "title": "The path to angel investing: founder experience vs. investment insight",
+      "video": "a9Q0ynDhDds",
+      "date": "2025-10-30"
+    },
+    {
+      "title": "2 November 2025",
+      "video": "Ird9l7FRboM",
+      "date": "2025-11-01"
+    },
+    {
+      "title": "17 August 2025",
+      "video": "EAxvBuXpN4M",
+      "date": "2025-08-17"
+    },
+    {
+      "title": "12 August 2025",
+      "video": "iAwJriOGLcs",
+      "date": "2025-08-12"
     }
   ]
 }

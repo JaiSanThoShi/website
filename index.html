@@ -242,6 +242,41 @@ h2 { font-weight: 700; }
 .impact-card { gap: 6px; }
 .ic-top { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; flex-wrap: wrap; }
 .role { font-size: 14.5px; font-weight: 600; color: var(--accent-ink); }
+
+/* podcast: full width, video tiles */
+.inner.wide { max-width: 1240px; }
+.pod-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.yt-btn { background: #C4302B; color: #fff; border-color: #C4302B; font-size: 13px; padding: 7px 14px; border-radius: 999px; }
+.yt-btn:hover { background: #A82520; color: #fff; border-color: #A82520; }
+.pod-stats { display: flex; gap: 10px 26px; flex-wrap: wrap; margin-top: -30px; color: var(--muted); font-size: 15px; }
+.pod-stats b { color: var(--ink); font-family: var(--head); font-weight: 700; }
+.yt { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; padding: 0; border-radius: 12px; overflow: hidden; background: #1A1714; cursor: pointer; }
+.yt img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease, filter .3s; }
+.yt:hover img { transform: scale(1.04); filter: brightness(.85); }
+.yt .play { position: absolute; left: 50%; top: 50%; width: 64px; height: 44px; margin: -22px 0 0 -32px; border-radius: 12px; background: rgba(20,17,14,.72); transition: background .2s, transform .2s; }
+.yt .play::after { content: ""; position: absolute; left: 26px; top: 13px; border-left: 16px solid #fff; border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
+.yt:hover .play { background: #C4302B; transform: scale(1.06); }
+.yt .badge { position: absolute; left: 12px; top: 12px; background: var(--accent); color: #fff; font-family: var(--mono); font-size: 12px; padding: 3px 9px; border-radius: 999px; }
+.yt.playing { cursor: default; }
+.yt iframe { width: 100%; height: 100%; border: 0; display: block; }
+.ep { display: grid; gap: 14px; align-content: start; }
+.ep-big { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); column-gap: 32px; align-items: start; }
+.ep-big .clips { grid-column: 1 / -1; }
+.ep-body { display: grid; gap: 8px; align-content: start; }
+.ep-meta { display: flex; gap: 12px; align-items: center; }
+.ep-num { font-family: var(--head); font-weight: 700; font-size: 13px; color: var(--accent-ink); background: color-mix(in srgb, var(--accent) 12%, transparent); padding: 2px 10px; border-radius: 999px; }
+.ep h3 { font-family: var(--head); font-weight: 700; font-size: 21px; line-height: 1.22; margin: 0; letter-spacing: -.01em; }
+.ep-big h3 { font-size: clamp(24px, 2.6vw, 32px); }
+.ep-guest { color: var(--muted); } .ep-guest b { color: var(--ink); font-weight: 600; }
+.ep-sum { font-size: 16px; line-height: 1.6; }
+.ep-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 36px 28px; }
+.clips, .more-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+.ep-big .clips { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.clip { display: grid; gap: 7px; align-content: start; }
+.clip span { font-size: 14px; line-height: 1.4; }
+.clip .yt { border-radius: 9px; } .clip .yt .play { width: 44px; height: 30px; margin: -15px 0 0 -22px; border-radius: 8px; } .clip .yt .play::after { left: 18px; top: 8px; border-left-width: 11px; border-top-width: 7px; border-bottom-width: 7px; }
+@media (max-width: 980px) { .ep-big { grid-template-columns: minmax(0, 1fr); row-gap: 14px; } }
+@media (max-width: 560px) { .ep-grid { grid-template-columns: minmax(0, 1fr); } .clips, .more-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pod-stats { margin-top: -26px; } }
 </style>
 <script>
   try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -376,6 +411,10 @@ const spine = (b, i) => { const h = hash(b.title); return `<button class="spine"
 const postRows = (posts, fallback) => `<ul class="posts">${posts.map(m => `<li>${(m.url || fallback) ? `<a href="${esc(m.url || fallback)}" target="_blank" rel="noopener">${esc(m.title)}</a>` : `<span>${esc(m.title)}</span>`}<span class="meta"><span class="mono muted">${fmt(m.date)}</span>${list(m.tags).map(x => `<span class="pill">${esc(x)}</span>`).join("")}</span></li>`).join("")}</ul>`;
 const oldRows = posts => { const years = [...new Set(posts.map(p => String(p.date || "").slice(0, 4)))];
   return years.map(y => `<div class="year">${esc(y)}</div><ul class="posts">${posts.filter(p => String(p.date || "").startsWith(y)).map(p => `<li><a href="#read-${esc(p.slug)}">${esc(p.title)}</a><span class="meta"><span class="mono muted">${fmt(p.date)}</span>${list(p.tags).map(x => `<span class="pill">${esc(x)}</span>`).join("")}</span></li>`).join("")}</ul>`).join(""); };
+/* YouTube tiles: a thumbnail that turns into the player when clicked */
+const ytid = v => { const m = String(v || "").match(/(?:v=|youtu\.be\/|embed\/|shorts\/|live\/)([A-Za-z0-9_-]{11})/); return m ? m[1] : String(v || "").trim(); };
+const yt = (v, t, badge) => { const id = ytid(v); if (!id) return "";
+  return `<button class="yt" data-yt="${esc(id)}" aria-label="Play ${esc(t)}"><img src="https://i.ytimg.com/vi/${esc(id)}/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span>${badge ? `<span class="badge">${esc(badge)}</span>` : ""}</button>`; };
 const labelOf = id => (C.pages.find(p => p.page === id) || {}).label || (PAGES.find(p => p[0] === id) || [, id])[1];
 
 const VIEW = {
@@ -409,10 +448,27 @@ const VIEW = {
       <div class="strings">${rows.map(r => `<div class="string">${r.map(([p, i]) => `<figure class="pol" tabindex="0" role="button" data-i="${i}" style="--r:${(i % 2 ? 1 : -1) * (2 + i % 3)}deg"><span class="ph" style="${bg(p.photo, p.place)}"></span><figcaption>${esc(p.place)}</figcaption></figure>`).join("")}</div>`).join("")}</div>`;
   },
   podcast() {
-    const P = C.podcast;
-    return `${title("podcast", P.title || labelOf("podcast"))}${P.line ? `<p class="lede">${esc(P.line)}</p>` : ""}
-      ${P.youtube ? `<a class="btn" href="${esc(P.youtube)}" target="_blank" rel="noopener">Watch on YouTube ↗</a>` : ""}
-      ${block("Episodes", `<div class="cards">${(P.episodes || []).slice().sort((a, b) => (b.number || 0) - (a.number || 0)).map(e => `<div class="card"><span class="mono muted">Episode ${String(e.number ?? "").padStart(2, "0")}</span><h3>${esc(e.title)}</h3>${e.guest ? `<p>with ${esc(e.guest)}</p>` : ""}${e.url || P.youtube ? `<a class="btn" href="${esc(e.url || P.youtube)}" target="_blank" rel="noopener">Watch ↗</a>` : ""}</div>`).join("")}</div>`, "", 0)}`;
+    const P = C.podcast, eps = (P.episodes || []).slice().sort((a, b) => (b.number || 0) - (a.number || 0));
+    const [latest, ...rest] = eps;
+    const clipCount = eps.reduce((n, e) => n + (e.clips || []).length, 0) + (P.more || []).length + (P.launch?.video ? 1 : 0);
+    const epTile = (e, big) => `<article class="ep${big ? " ep-big" : ""}">
+        ${yt(e.video, e.title, `Episode ${String(e.number ?? "").padStart(2, "0")}`)}
+        <div class="ep-body">
+          <div class="ep-meta"><span class="ep-num">Ep ${String(e.number ?? "").padStart(2, "0")}</span><span class="mono muted">${fmt(e.date)}</span></div>
+          <h3>${esc(e.title)}</h3>
+          ${e.guest ? `<p class="ep-guest">with <b>${esc(e.guest)}</b>${e.company ? ` · ${esc(e.company)}` : ""}</p>` : ""}
+          ${e.summary ? `<p class="ep-sum">${esc(e.summary)}</p>` : ""}
+        </div>
+        ${(e.clips || []).length ? `<div class="clips">${e.clips.map(c => `<div class="clip">${yt(c.video, c.title)}<span>${esc(c.title)}</span></div>`).join("")}</div>` : ""}
+      </article>`;
+    return `<div class="pod-head">${title("podcast", P.title || labelOf("podcast"))}
+        ${P.youtube ? `<a class="btn yt-btn" href="${esc(P.youtube)}" target="_blank" rel="noopener">▶ Subscribe on YouTube ↗</a>` : ""}</div>
+      ${P.line ? `<p class="lede">${esc(P.line)}</p>` : ""}
+      <div class="pod-stats"><span><b>${eps.length}</b> episodes</span><span><b>${clipCount + eps.length}</b> videos</span><span>Hosted by <b>Tharun & Santhoshi</b></span></div>
+      ${latest ? block("Latest episode", epTile(latest, true), "", 0) : ""}
+      ${rest.length ? block("All episodes", `<div class="ep-grid">${rest.map(e => epTile(e, false)).join("")}</div>`, "", 1) : ""}
+      ${P.launch?.video ? block("Where it started", `<div class="ep-grid">${`<article class="ep">${yt(P.launch.video, P.launch.title)}<div class="ep-body"><div class="ep-meta"><span class="ep-num">Launch</span><span class="mono muted">${fmt(P.launch.date)}</span></div><h3>${esc(P.launch.title)}</h3></div></article>`}</div>`, "", 2) : ""}
+      ${(P.more || []).length ? block("More from the channel", `<div class="more-grid">${P.more.map(m => `<div class="clip">${yt(m.video, m.title)}<span>${esc(m.title)}</span></div>`).join("")}</div>`, out(P.youtube, "See all on YouTube"), 3) : ""}`;
   },
   blog() {
     const M = C.musings, Ac = C.archive;
@@ -452,7 +508,7 @@ function route() {
   const id = location.hash.slice(1), view = document.getElementById("view");
   const reading = id.startsWith("read-") ? id.slice(5) : null;
   const page = reading ? ((C.archive.posts || []).some(p => p.slug === reading) ? "blog" : "me") : C.pages.some(p => p.page === id) ? id : (C.pages[0] || { page: "me" }).page;
-  view.innerHTML = reading ? VIEW.read(reading) : VIEW[page](); view.classList.remove("fade"); void view.offsetWidth; view.classList.add("fade");
+  view.innerHTML = reading ? VIEW.read(reading) : VIEW[page](); view.classList.toggle("wide", !reading && page === "podcast"); view.classList.remove("fade"); void view.offsetWidth; view.classList.add("fade");
   document.querySelectorAll("#nav a").forEach(a => a.classList.toggle("on", a.dataset.id === page));
   if (reading) { window.scrollTo(0, 0); return; }
   window.scrollTo(0, 0);
@@ -487,6 +543,8 @@ const openLb = (photo, key, ar, cap) => { document.getElementById("lb-img").styl
 document.getElementById("lb-x").onclick = () => lb.close();
 lb.onclick = e => { if (e.target === lb) lb.close(); };
 document.getElementById("view").addEventListener("click", e => {
+  const y = e.target.closest(".yt");
+  if (y) { y.outerHTML = `<div class="yt playing"><iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(y.dataset.yt)}?autoplay=1&rel=0" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>`; return; }
   const s = e.target.closest(".spine"); if (s) return showBook(+s.dataset.i);
   const c = e.target.closest(".cd"); if (c) return showFilm(+c.dataset.i);
   const p = e.target.closest(".pol"); if (p) { const t = C.travel.photos[+p.dataset.i]; return openLb(t.photo, t.place, "4/3", `${esc(t.place)} <i>· ${esc(t.when)}</i>${t.story ? `<br>${esc(t.story)}` : ""}`); }
