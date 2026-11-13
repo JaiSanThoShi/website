@@ -10,12 +10,11 @@
 ## Changing the layout
 
 Open **✦ Site design** in Pages CMS. From there you can:
-- move the menu to the top or the left
 - pick a font, text size, accent colour, background and page width
 - turn the fairy lights, typewriter greeting and painted dots on or off
 - show travel photos pegged on strings or as a simple grid
 - choose 2 or 3 columns for the art gallery
-- drag sections into a new order, rename them, or untick one to hide it
+- drag sections into a new order, rename their headings and menu names, or untick one to hide it
 
 ## Where things live
 

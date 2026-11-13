@@ -3,7 +3,7 @@
     {
       "title": "Karpi",
       "what": "A nonprofit exam-prep community: books, resources and mentorship",
-      "when": "2026 –",
+      "when": "2026",
       "url": ""
     },
     {
@@ -12,5 +12,6 @@
       "when": "2024",
       "url": ""
     }
-  ]
+  ],
+  "line": "Things I've built or helped with for causes I care about."
 }

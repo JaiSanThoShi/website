@@ -1,6 +1,7 @@
 {
   "name": "Jai Santhoshi Sathish Kumar",
-  "hello": "Hi, I'm Jai Santhoshi.",
-  "intro": "I'm a ==management consultant== who paints on Sundays, co-hosts a podcast called ==Ground Up==, and is moving soon for ==business school==.\n\nThis is my small corner of the internet. If we're about to have a coffee chat, hello!",
-  "email": "hello@yourdomain.com"
+  "hello": "Hey, I'm Santhoshi!",
+  "intro": "I'm Jai Santhoshi, a ==management consultant== who paints on Sundays, co-hosts ==Ground Up==, and is moving soon for ==business school==. This is my little corner of the internet.",
+  "email": "hello@yourdomain.com",
+  "tagline": "Management consultant, Sunday painter, podcast co-host."
 }

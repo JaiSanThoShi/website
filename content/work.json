@@ -3,19 +3,23 @@
   "resume": "",
   "roles": [
     {
-      "title": "Management consultant",
+      "title": "Undergraduate degree",
+      "where": "Your college",
+      "when": "2017 – 2021",
+      "link": ""
+    },
+    {
+      "title": "Management Consultant",
       "where": "Your firm",
-      "when": "2022 –"
+      "when": "2022 – now",
+      "link": ""
     },
     {
       "title": "MBA",
       "where": "Business school",
-      "when": "2027 –"
-    },
-    {
-      "title": "Undergraduate degree",
-      "where": "Your college",
-      "when": "2017 – 21"
+      "when": "2027 –",
+      "link": ""
     }
-  ]
+  ],
+  "line": "The short version of my story so far."
 }

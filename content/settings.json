@@ -1,5 +1,4 @@
 {
-  "menu": "top",
   "font": "book antiqua",
   "text_size": "medium",
   "accent": "terracotta",
@@ -12,48 +11,57 @@
   "gallery_columns": "3",
   "sections": [
     {
+      "section": "work",
+      "label": "A brief timeline",
+      "menu": "Timeline",
+      "show": true
+    },
+    {
       "section": "musings",
-      "label": "Musings",
+      "label": "Latest musings",
+      "menu": "Musings",
       "show": true
     },
     {
       "section": "library",
       "label": "Library",
+      "menu": "Library",
       "show": true
     },
     {
       "section": "travel",
       "label": "Travel",
+      "menu": "Travel",
       "show": true
     },
     {
       "section": "art",
       "label": "Art",
+      "menu": "Art",
       "show": true
     },
     {
       "section": "ground-up",
       "label": "Ground Up",
+      "menu": "Ground Up",
+      "show": true
+    },
+    {
+      "section": "impact",
+      "label": "Projects & impact",
+      "menu": "Projects",
       "show": true
     },
     {
       "section": "fitness",
       "label": "Fitness",
-      "show": true
-    },
-    {
-      "section": "impact",
-      "label": "Impact",
-      "show": true
-    },
-    {
-      "section": "work",
-      "label": "Work",
+      "menu": "Fitness",
       "show": true
     },
     {
       "section": "archive",
       "label": "Archive",
+      "menu": "Archive",
       "show": true
     }
   ]

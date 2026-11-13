@@ -1,21 +1,24 @@
 {
-  "line": "Things I'm thinking about. They all live on",
+  "line": "Things I'm thinking about. Every post lives on Substack.",
   "substack": "https://substack.com/",
   "posts": [
     {
       "title": "Why I'm finally starting a website",
       "date": "2026-10-20",
-      "url": "https://substack.com/"
+      "url": "https://substack.com/",
+      "tags": "life, internet"
     },
     {
       "title": "What consulting taught me about asking questions",
       "date": "2026-10-04",
-      "url": "https://substack.com/"
+      "url": "https://substack.com/",
+      "tags": "work, consulting"
     },
     {
       "title": "On painting badly every sunday",
       "date": "2026-09-28",
-      "url": "https://substack.com/"
+      "url": "https://substack.com/",
+      "tags": "art"
     }
   ]
 }

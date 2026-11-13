@@ -10,10 +10,6 @@ content:
     path: content/settings.json
     format: json
     fields:
-      - name: menu
-        label: Where the menu sits
-        type: select
-        options: { values: [top, left] }
       - name: font
         label: Font
         type: select
@@ -54,7 +50,8 @@ content:
             label: Section
             type: select
             options: { values: [musings, library, travel, art, ground-up, fitness, impact, work, archive] }
-          - { name: label, label: Name shown in the menu and heading, type: string }
+          - { name: label, label: Section heading, type: string }
+          - { name: menu, label: Short name in the top menu, type: string }
           - { name: show, label: Show on the site, type: boolean }
 
   - name: about
@@ -64,7 +61,8 @@ content:
     format: json
     fields:
       - { name: name, label: Your name, type: string }
-      - { name: hello, label: Greeting, type: string }
+      - { name: hello, label: "Greeting (typed out at the top)", type: string }
+      - { name: tagline, label: One-line description under it, type: string }
       - name: intro
         label: Intro
         type: text
@@ -87,6 +85,7 @@ content:
           - { name: title, label: Title, type: string, required: true }
           - { name: date, label: Date, type: date }
           - { name: url, label: Link to the post on Substack, type: string }
+          - { name: tags, label: "Tags, separated by commas", type: string }
 
   - name: library
     label: Library (books and films)
@@ -185,11 +184,12 @@ content:
       - { name: instagram, label: Instagram link, type: string }
 
   - name: impact
-    label: Impact
+    label: Projects & impact
     type: file
     path: content/impact.json
     format: json
     fields:
+      - { name: line, label: Line under the heading, type: string }
       - name: items
         label: Projects
         type: object
@@ -197,15 +197,16 @@ content:
         fields:
           - { name: title, label: Name, type: string, required: true }
           - { name: what, label: What it is, type: string }
-          - { name: when, label: "When (e.g. 2026 –)", type: string }
+          - { name: when, label: "Year (e.g. 2026)", type: string }
           - { name: url, label: Link (optional), type: string }
 
   - name: work
-    label: Work
+    label: Work (timeline)
     type: file
     path: content/work.json
     format: json
     fields:
+      - { name: line, label: Line under the heading, type: string }
       - { name: linkedin, label: LinkedIn link, type: string }
       - { name: resume, label: Résumé (PDF), type: file }
       - name: roles
@@ -215,7 +216,8 @@ content:
         fields:
           - { name: title, label: Title, type: string, required: true }
           - { name: where, label: Where, type: string }
-          - { name: when, label: "When (e.g. 2022 –)", type: string }
+          - { name: when, label: "When (e.g. 2022 – now)", type: string }
+          - { name: link, label: Link (optional), type: string }
 
   - name: archive
     label: Archive (old blog)
