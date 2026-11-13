@@ -1,67 +1,52 @@
 {
   "books": [
     {
-      "title": "Co-Intelligence",
-      "author": "Ethan Mollick",
-      "shelf": "reading",
+      "title": "Numbers",
+      "author": "Rachel Ward",
+      "shelf": "read",
       "rating": 0,
-      "note": "Halfway in, reading it alongside my own AI experiments."
+      "note": "A mystery I finished one late June.",
+      "review": "numbers"
     },
     {
-      "title": "Range",
-      "author": "David Epstein",
+      "title": "Matilda",
+      "author": "Roald Dahl",
       "shelf": "read",
-      "rating": 5,
-      "note": "A case for being a generalist for longer."
-    },
-    {
-      "title": "Thinking in Systems",
-      "author": "Donella Meadows",
-      "shelf": "read",
-      "rating": 5,
-      "note": "Stocks, flows and feedback loops are everywhere."
-    },
-    {
-      "title": "The God of Small Things",
-      "author": "Arundhati Roy",
-      "shelf": "read",
-      "rating": 5,
-      "note": "The language does things I didn't know English could do."
-    },
-    {
-      "title": "Poor Economics",
-      "author": "Banerjee & Duflo",
-      "shelf": "read",
-      "rating": 5,
-      "note": "Shaped how I think about giving."
-    },
-    {
-      "title": "Educated",
-      "author": "Tara Westover",
-      "shelf": "read",
-      "rating": 5,
-      "note": "On what education gives you and what it costs."
-    },
-    {
-      "title": "Pachinko",
-      "author": "Min Jin Lee",
-      "shelf": "read",
-      "rating": 4,
-      "note": "Four generations and a lot of quiet endurance."
-    },
-    {
-      "title": "Malgudi Days",
-      "author": "R. K. Narayan",
-      "shelf": "read",
-      "rating": 4,
-      "note": "Comfort reading."
-    },
-    {
-      "title": "Middlemarch",
-      "author": "George Eliot",
-      "shelf": "someday",
       "rating": 0,
-      "note": "Everyone I admire seems to have read it."
+      "note": "Though it's for children, it entertains grownups too.",
+      "review": "matilda"
+    },
+    {
+      "title": "Daddy's Little Girl",
+      "author": "Mary Higgins Clark",
+      "shelf": "read",
+      "rating": 0,
+      "note": "As usual the queen of suspense has proved her standards.",
+      "review": "daddys-little-girl"
+    },
+    {
+      "title": "The Selection",
+      "author": "Kiera Cass",
+      "shelf": "read",
+      "rating": 0,
+      "note": "Highly entertaining!",
+      "review": "the-selection"
+    },
+    {
+      "title": "Where She Went",
+      "author": "Gayle Forman",
+      "shelf": "read",
+      "rating": 0,
+      "note": "A bewitching sequel to If I Stay.",
+      "review": "where-she-went"
+    },
+    {
+      "title": "The Maze Runner",
+      "author": "James Dashner",
+      "shelf": "read",
+      "rating": 0,
+      "note": "Spontaneous thrill and mystery in a whole new world called the Glade.",
+      "review": "the-maze-runner"
     }
   ],
   "films": [

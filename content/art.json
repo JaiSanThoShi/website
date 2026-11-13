@@ -1,33 +1,109 @@
 {
-  "line": "From Sunday afternoons.",
+  "line": "Artoons: drawings and paintings from my school days.",
   "pieces": [
     {
-      "title": "Monsoon window",
-      "year": 2026,
-      "medium": "Acrylic",
+      "title": "A Classic Mandala",
+      "year": 2017,
+      "medium": "",
       "shape": "portrait",
-      "photo": ""
+      "photo": "images/wp/img_9985-d66d41.jpg",
+      "post": "mandala-1"
     },
     {
-      "title": "Kolam at dawn",
-      "year": 2025,
-      "medium": "Gouache",
-      "shape": "square",
-      "photo": ""
+      "title": "Ganesh Chathurthi",
+      "year": 2017,
+      "medium": "",
+      "shape": "portrait",
+      "photo": "images/wp/img_9737-6db6c7.jpg",
+      "post": "happy-ganesh-chathurthi"
     },
     {
-      "title": "Marina, 6pm",
-      "year": 2025,
-      "medium": "Watercolour",
+      "title": "Fiercion",
+      "year": 2017,
+      "medium": "",
       "shape": "landscape",
-      "photo": ""
+      "photo": "images/wp/img_8710-487a48.jpg",
+      "post": "fiercion"
     },
     {
-      "title": "Study in teal",
-      "year": 2024,
-      "medium": "Oil on board",
+      "title": "Mrityunjaya",
+      "year": 2017,
+      "medium": "",
       "shape": "portrait",
-      "photo": ""
+      "photo": "images/wp/img_8490-5463b9.jpg",
+      "post": "mrityunjaya"
+    },
+    {
+      "title": "Rozes",
+      "year": 2017,
+      "medium": "",
+      "shape": "portrait",
+      "photo": "images/wp/img_7594-e64ff8.jpg",
+      "post": "rozes"
+    },
+    {
+      "title": "The Vase and The Book",
+      "year": 2017,
+      "medium": "",
+      "shape": "portrait",
+      "photo": "images/wp/img_5606-799ad0.jpg",
+      "post": "the-vase-and-the-book"
+    },
+    {
+      "title": "Peacock : A Glass Mural",
+      "year": 2017,
+      "medium": "",
+      "shape": "square",
+      "photo": "images/wp/img_6975-d446de.jpg",
+      "post": "peacock-a-glass-mural"
+    },
+    {
+      "title": "The Water Wanderer",
+      "year": 2016,
+      "medium": "",
+      "shape": "landscape",
+      "photo": "images/wp/img_5605-205e99.jpg",
+      "post": "the-water-wanderer"
+    },
+    {
+      "title": "The Parakeet",
+      "year": 2016,
+      "medium": "",
+      "shape": "portrait",
+      "photo": "images/wp/img_5604-fcc54c.jpg",
+      "post": "the-parakeet"
+    },
+    {
+      "title": "The Floater",
+      "year": 2016,
+      "medium": "",
+      "shape": "landscape",
+      "photo": "images/wp/fullsizerender-4-fcac63.jpg",
+      "post": "the-floater"
+    },
+    {
+      "title": "Serenity",
+      "year": 2016,
+      "medium": "",
+      "shape": "portrait",
+      "photo": "images/wp/fullsizerender-3-806e75.jpg",
+      "post": "serenity"
+    },
+    {
+      "title": "Cape Cabin",
+      "year": 2016,
+      "medium": "",
+      "shape": "portrait",
+      "photo": "images/wp/img_3348-50d71b.jpg",
+      "post": "cape-cabin"
+    },
+    {
+      "title": "Watermelon",
+      "year": 2015,
+      "medium": "",
+      "shape": "landscape",
+      "photo": "images/wp/img_3344-5ec8ac.jpg",
+      "post": "watermelon"
     }
   ]
 }

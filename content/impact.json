@@ -1,8 +1,20 @@
 {
   "items": [
     {
+      "title": "Carnival, my novel",
+      "what": "A story that came to me at a temple fest in my grandparents' hometown. Published November 2020.",
+      "when": "2020",
+      "url": "https://www.amazon.in/dp/1636400795"
+    },
+    {
+      "title": "My NGO",
+      "what": "Started at IIT Madras. It survived, and I'm figuring out next steps.",
+      "when": "IIT Madras",
+      "url": ""
+    },
+    {
       "title": "Karpi",
-      "what": "A nonprofit exam-prep community: books, resources and mentorship",
+      "what": "A nonprofit exam-prep community: books, resources and mentorship.",
       "when": "2026",
       "url": ""
     },
@@ -11,13 +23,7 @@
       "what": "Built with Claude. Every page is a small experiment.",
       "when": "2026",
       "url": ""
-    },
-    {
-      "title": "Sample project",
-      "what": "A line on what you did and who it helped",
-      "when": "2024",
-      "url": ""
     }
   ],
-  "line": "Things I've built or helped with, mostly for causes I care about."
+  "line": "Things I've built or started, mostly for causes I care about."
 }

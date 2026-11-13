@@ -1,47 +1,73 @@
 {
   "name": "Jai Santhoshi Sathish Kumar",
   "hello": "Hey, I'm Santhoshi!",
-  "intro": "I'm Jai Santhoshi, a ==management consultant== who paints on Sundays, co-hosts ==Ground Up==, and is moving soon for ==business school==.\n\nI like big questions, small details, long walks and good chai. This site is where I keep the things I make, read, watch and think about.",
-  "email": "hello@yourdomain.com",
-  "tagline": "Management consultant, Sunday painter, podcast co-host.",
-  "panel": "I'm ==Santhoshi==, a consultant who paints on Sundays and talks to builders on a podcast. Welcome to my corner of the internet.",
+  "intro": "Hi there! I'm Jai Santhoshi Sathish Kumar. I hail from ==Erode, Tamil Nadu==, which truly is the Indian version of Stars Hollow. I grew up there for 18 years, moved to Chennai for college at ==IIT Madras==, then to Bangalore for my first job, travelling back and forth to Singapore for work. Right now I'm a consultant at ==Bain==.\n\nIIT Madras taught me one thing above all: life is what you make out of it. I played squash, ran Asia's largest student-run festival, became the first female cultural affairs secretary, started a social enterprise (it failed) and an NGO (it survived).\n\nOutside work I love science and maths, writing and reading, social impact, music (I'm learning the violin) and my friends and family.",
+  "email": "sk.jaisanthoshi@gmail.com",
+  "tagline": "Consultant at Bain · IIT Madras alum · writer, painter, squash player.",
+  "panel": "I'm ==Santhoshi==, a consultant at Bain from Erode who writes, paints and plays squash. Welcome to my corner of the internet.",
   "timeline": [
     {
-      "when": "2017 – 2021",
-      "title": "Undergraduate degree",
-      "where": "Your college"
+      "when": "2005 – 2017",
+      "title": "The Indian Public School",
+      "where": "Erode"
     },
     {
-      "when": "2022 – now",
-      "title": "Management Consultant",
-      "where": "Your firm"
+      "when": "2017 – 2019",
+      "title": "JEE coaching",
+      "where": "Suguna PIPS, Coimbatore"
     },
     {
-      "when": "2026",
-      "title": "Started Ground Up",
-      "where": "with Tharun"
+      "when": "2019 – 2023",
+      "title": "B.Tech, Metallurgical & Materials Engineering",
+      "where": "IIT Madras"
     },
     {
-      "when": "2027 –",
+      "when": "2020",
+      "title": "Published my novel, Carnival",
+      "where": "White Falcon Publishing"
+    },
+    {
+      "when": "2022",
+      "title": "Institute Cultural Affairs Secretary",
+      "where": "IIT Madras, the first woman in the role"
+    },
+    {
+      "when": "After IIT",
+      "title": "Founder's office and growth team",
+      "where": "Blaze AI"
+    },
+    {
+      "when": "Now",
+      "title": "Consultant",
+      "where": "Bain & Company"
+    },
+    {
+      "when": "Next",
       "title": "MBA",
       "where": "Business school"
     }
   ],
   "hobbies": [
     {
-      "name": "Painting",
-      "text": "Sundays are for acrylics and watercolours. A few favourites are below.",
+      "name": "Squash",
+      "text": "I found it at IIT Madras and it felt perfect. I played Inter IIT 2022 for the Madras Hawks.",
+      "link": "#read-squash"
+    },
+    {
+      "name": "Writing & reading",
+      "text": "I wrote and published a novel, Carnival, and have blogged since 2015.",
+      "link": "#blog"
+    },
+    {
+      "name": "Art",
+      "text": "Mandalas, glass murals and paintings. A few from my old blog are below.",
       "link": ""
     },
     {
-      "name": "Running",
-      "text": "Slow and steady, mostly in running shoes. First 10K done, half marathon next.",
-      "link": "https://www.instagram.com/"
-    },
-    {
-      "name": "Reading & films",
-      "text": "Always halfway through a book and a film. See what's on my shelf below.",
+      "name": "Music",
+      "text": "Not gifted with vocal excellence, but I love music in all forms. Currently learning the violin.",
       "link": ""
     }
-  ]
+  ],
+  "story": "<p>Hi there! I am Jai Santhoshi Sathish Kumar and I’m twenty-three! I hail from Erode, Tamil Nadu – would call it home – this city truly is the Indian version of Stars Hollow for all the right reasons. I’ve spent 18 years of my life growing up in Erode – moved to Chennai for college – and then moved again to Bangalore for my first job – and traveled back and forth to Singapore for work – and now, as I write this, I am not sure where I’d be flying to next – and can humbly say that at this point in time, the world remains my oyester</p>\n<p>A lot of who I’ve become and am evolves from the school I went to – The Indian Public School, Erode – had been my go-to from 2005-2017. Along the way, this school also gifted me with the best of friends – and I will always owe one for life. To break boundaries and fly high, I decided to move schools – pursued the infamous JEE coaching and landed at Suguna PIPS, Coimbatore. Was quiet a roller coaster, but in all-honesty – I had quiet the growth arc moving schools, leaving my comfort pad. </p>\n<p>The JEE coaching had its fruition – I joined IIT Madras in 2019 to pursue Bachelors of Technology in the department of Metallurgical and Materials Engineering. Don’t question me on why Metallurgy – I’d just like to say I went with the flow. Reflecting, I was looking to make breakthroughs in the space of Materials (had inane ambitions of inventing a hydrophobic desalinating surface using lotus leaves)</p>\n<p>Life at IIT Madras (As all the headlines go) – was a rollercoaster. First year – would call it life-altering and disastrous at the same time. Second year – Re-incarnating, clarity, realized GPA matters. Third year – one word, hustle. Fourth year – Chaotic, PMS-ed the whole year, but of-course hustled. IITM taught me a lot of different things, but for the sake of it, let me quote my learning – </p>\n<blockquote>\n<p>Life is what you make out of it. Period. (For the better lack of choice)</p>\n</blockquote>\n<p>I wouldn’t agree more on this. Right from Day 1 of insti (commonly known as Uni by the muggles) – we were thrown into a well with 10000001 things to choose from. And so I did – filled my calendar up with a ton of things to do – Espoused 4ams for life. Some of the wildest things that I’d never even probably dreamt of doing in life are – </p>\n<ol>\n<li>Play squash (the best sport really!) – playing Inter-IIT</li>\n<li>Run Asia’s largest student run festival? Lead 800+ people? Well, did it.</li>\n<li>Welding, molding, Carpentry – the cargos in the summer heat was the price I paid</li>\n<li>Elections, campaigning, politics – winning moment – first female culsec</li>\n<li>Starting a social enterprise (failed) – yet started </li>\n<li>Starting my own NGO (survived) – figuring out next steps</li>\n<li>Friends – 100s of them – high agency individuals – learnt a ton from them!</li>\n<li>LitSoc – the experience beats everything else (Queen of Sheba ofc!)</li>\n<li>T5E – Best of people are in T5E trust me!</li>\n<li>Perseverance to do anything in life (Ex. Beating Chennai heat)</li>\n</ol>\n<p> Thankyou insti, for everything really.</p>\n<p>I took out to do a short stint at Blaze AI – before Bain. A 6 month role in the founder’s office / growth team – amazing, amazing folks to have ever worked with! The chai breaks, the huddles, the pohas, the attempts to eat healthy – their attempts at teaching me to code! Grateful for ever to Chirag and Lauren for this opportunity!</p>\n<p>Next was Bain – where I’m at currently – Bleeding red. Consulting. Business. Strategy. Excel. Dabbled across various legs of healthcare – provider, services – still dabbling and hoping to do so for quiet a while. </p>\n<p>Now onto the fun things in life – my passion has evolved across a multitude of things, but the core of it remains around the following things: </p>\n<ol>\n<li>Science / Math (I love problem solving + and will remain an eternally curious person)</li>\n<li>Writing / Reading (I believe that the core of my beliefs are a reflection of what I read -&gt; which translates into my thoughts and writings)</li>\n<li>Social Impact (While the world often scrambles at impact as a mere tick in your college checklist, I think my ultimate purpose in life is to build something for humanity)</li>\n<li>Friends &amp; Family (I love spending time with my family and friends, and of-course, love making new friends!)</li>\n<li>Music (Though not gifted with vocal excellence, I appreciate music in all forms – currently trying to learn the violin :)) </li>\n<li>Playing squash! </li>\n</ol>\n<p>Lovely talking to you through! If you’d like to connect feel free to reach out – sk.jaisanthoshi@gmail.com</p>\n<figure><blockquote><p>She’s mad but she’s magic <br>There is no lie in her fire</p>Charles bukowski</blockquote></figure>\n<figure><blockquote><p>All the variety, All the charm, All the beauty of life is made up of light and shadow</p>Leo Tolstoy, Anna Karenina</blockquote></figure>"
 }

@@ -70,6 +70,9 @@ content:
         label: About me
         type: text
         description: "Leave a blank line between paragraphs. Wrap words in ==double equals== for a watercolour brushstroke."
+      - name: story
+        label: "My whole story (the long version, opened from About me)"
+        type: rich-text
       - { name: email, label: Email shown in the side panel, type: string }
       - name: timeline
         label: Timeline
@@ -108,6 +111,7 @@ content:
             type: select
             options: { values: [portrait, square, landscape] }
           - { name: photo, label: Photo of the painting, type: image }
+          - { name: post, label: "Old blog post about it (its slug, optional)", type: string }
 
   - name: library
     label: "Get to know me: reading, listening, watching"
@@ -128,6 +132,7 @@ content:
             options: { values: [reading, read, someday] }
           - { name: rating, label: "Rating (0 to 5, 0 = no stars)", type: number }
           - { name: note, label: One line on it, type: string }
+          - { name: review, label: "Your review on the old blog (its slug, optional)", type: string }
       - name: listening
         label: Listening to
         type: object
@@ -224,12 +229,23 @@ content:
           - { name: tags, label: "Tags, separated by commas", type: string }
 
   - name: archive
-    label: "Blog: old posts"
+    label: "Blog: old posts and College days"
     type: file
     path: content/archive.json
     format: json
     fields:
-      - { name: line, label: Line under the heading, type: string }
+      - { name: line, label: Line above the old posts, type: string }
+      - { name: college_line, label: Line under College days, type: string }
+      - name: college
+        label: College days (shown on Get to know me)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: slug, label: "Web address (short, no spaces, e.g. insti)", type: string, required: true }
+          - { name: line, label: One line about it, type: string }
+          - { name: cover, label: Cover photo, type: image }
+          - { name: body, label: The full page, type: rich-text }
       - name: posts
         label: Old posts
         type: object
@@ -237,7 +253,10 @@ content:
         fields:
           - { name: title, label: Title, type: string, required: true }
           - { name: date, label: Date, type: date }
-          - { name: url, label: Link (optional), type: string }
+          - { name: slug, label: "Web address (short, no spaces)", type: string, required: true }
+          - { name: tags, label: "Tags, separated by commas", type: string }
+          - { name: cover, label: Cover photo, type: image }
+          - { name: body, label: The post, type: rich-text }
 
   - name: impact
     label: Projects

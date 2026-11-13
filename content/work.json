@@ -3,18 +3,20 @@
   "resume": "",
   "roles": [
     {
-      "title": "Management Consultant",
-      "where": "Your firm",
-      "when": "2022 – now",
-      "what": "Strategy work across industries: research, workshops, and turning analysis into decisions."
+      "title": "Consultant",
+      "where": "Bain & Company",
+      "when": "Now",
+      "what": "Healthcare strategy across providers and services.",
+      "link": ""
     },
     {
-      "title": "Summer Intern",
-      "where": "Sample company",
-      "when": "2021",
-      "what": "A line about what you did and what you learned."
+      "title": "Founder's office & growth team",
+      "where": "Blaze AI",
+      "when": "6 months, after IIT",
+      "what": "Amazing folks, chai breaks, huddles, poha, and their attempts at teaching me to code.",
+      "link": ""
     }
   ],
-  "intro": "By day I'm a management consultant. I help teams untangle messy problems, find what matters, and tell a clear story about what to do next.",
-  "skills": "strategy, problem solving, storytelling, research, facilitation"
+  "intro": "I'm at Bain, bleeding red. Consulting, business, strategy, Excel. I've dabbled across various legs of healthcare, from providers to services, and hope to keep doing so for quite a while.",
+  "skills": "consulting, strategy, healthcare, problem solving, Excel, leading large teams"
 }

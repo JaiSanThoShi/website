@@ -181,7 +181,8 @@ body.gallery-2 .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 dialog { border: 0; padding: 0; background: transparent; max-width: min(760px, calc(100vw - 32px)); max-height: calc(100vh - 32px); }
 dialog::backdrop { background: rgba(20, 17, 14, .6); }
 .lb { background: #fff; color: #23201D; border-radius: 8px; padding: 16px 16px 14px; display: grid; gap: 10px; position: relative; }
-.lb .big { width: min(680px, calc(100vw - 64px)); aspect-ratio: var(--ar, 4/3); max-height: calc(100vh - 160px); background-size: cover; background-position: center; }
+.lb .big { width: min(680px, calc(100vw - 64px)); aspect-ratio: var(--ar, 4/3); max-height: calc(100vh - 160px); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #F4F1EC; }
+.lb a { color: #B5522A; }
 .lb p { font-size: 15px; } .lb p i { color: #7A746C; }
 .lb .x { position: absolute; top: -14px; right: -14px; width: 34px; height: 34px; border-radius: 50%; border: 0; background: #23201D; color: #fff; cursor: pointer; font-size: 18px; }
 
@@ -214,6 +215,23 @@ h2 { font-weight: 700; }
 .card h3 { font-weight: 600; }
 .lede { font-style: normal; }
 .panel nav a { font-family: var(--font); font-weight: 500; }
+
+/* old posts, read on the site */
+.year { font-family: var(--head); font-weight: 700; font-size: 17px; margin-top: 10px; color: var(--muted); }
+.post-body { display: grid; gap: 14px; }
+.post-title { font-family: var(--head); font-weight: 800; font-size: clamp(28px, 4vw, 38px); line-height: 1.12; margin: 0; letter-spacing: -.015em; }
+.meta-line { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.post-html { font-size: 18px; line-height: 1.75; display: grid; gap: 12px; max-width: 66ch; }
+.post-html p, .post-html ul, .post-html ol, .post-html blockquote, .post-html figure, .post-html h2, .post-html h3, .post-html h4 { margin: 0; }
+.post-html h2, .post-html h3, .post-html h4 { font-family: var(--head); font-weight: 700; font-size: 21px; margin-top: 12px; }
+.post-html img { max-width: 100%; height: auto; display: block; border-radius: 8px; margin: 8px 0; }
+.post-html p:has(> img + img) { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.post-html p:has(> img + img) img { margin: 0; aspect-ratio: 1; object-fit: cover; }
+.post-html blockquote { border-left: 3px solid var(--accent-ink); padding-left: 16px; color: var(--muted); font-style: italic; }
+.post-html a { color: var(--accent-ink); }
+.card.college { text-decoration: none; padding: 0 0 16px; overflow: hidden; }
+.card.college > *:not(.cover) { padding: 0 16px; }
+.card.college .cover { display: block; aspect-ratio: 16/10; background-size: cover; background-position: center; margin-bottom: 6px; }
 </style>
 <script>
   try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -340,10 +358,13 @@ function setup() {
 
 /* ── page blocks ── */
 const block = (title, body, link = "", i = 0) => `<section class="blk" style="--dot:${DOTS[i % DOTS.length]}"><div class="s-head"><h2>${esc(title)}</h2>${link}</div>${body}</section>`;
-const out = (href, text) => href ? `<a class="s-link" href="${esc(href)}" target="_blank" rel="noopener">${text} ↗</a>` : "";
+const ext = h => /^https?:/.test(h || "") ? ' target="_blank" rel="noopener"' : "";
+const out = (href, text) => href ? `<a class="s-link" href="${esc(href)}"${ext(href)}>${text}${ext(href) ? " ↗" : " →"}</a>` : "";
 const title = (page, text, typed) => `<div class="page-title">${pixel(page)}<h1 ${typed ? `id="typed" aria-label="${esc(text)}"><span class="txt" aria-hidden="true"></span><span class="caret" aria-hidden="true"></span>` : `>${esc(text)}`}</h1></div>`;
 const spine = (b, i) => { const h = hash(b.title); return `<button class="spine" data-i="${i}" style="background:${PAL[h % PAL.length]};height:${108 + h % 44}px;width:${Math.min(38, 22 + String(b.title).length * .7)}px" aria-label="${esc(b.title)} by ${esc(b.author)}"><span>${esc(b.title)}</span></button>`; };
 const postRows = (posts, fallback) => `<ul class="posts">${posts.map(m => `<li>${(m.url || fallback) ? `<a href="${esc(m.url || fallback)}" target="_blank" rel="noopener">${esc(m.title)}</a>` : `<span>${esc(m.title)}</span>`}<span class="meta"><span class="mono muted">${fmt(m.date)}</span>${list(m.tags).map(x => `<span class="pill">${esc(x)}</span>`).join("")}</span></li>`).join("")}</ul>`;
+const oldRows = posts => { const years = [...new Set(posts.map(p => String(p.date || "").slice(0, 4)))];
+  return years.map(y => `<div class="year">${esc(y)}</div><ul class="posts">${posts.filter(p => String(p.date || "").startsWith(y)).map(p => `<li><a href="#read-${esc(p.slug)}">${esc(p.title)}</a><span class="meta"><span class="mono muted">${fmt(p.date)}</span>${list(p.tags).map(x => `<span class="pill">${esc(x)}</span>`).join("")}</span></li>`).join("")}</ul>`).join(""); };
 const labelOf = id => (C.pages.find(p => p.page === id) || {}).label || (PAGES.find(p => p[0] === id) || [, id])[1];
 
 const VIEW = {
@@ -352,11 +373,12 @@ const VIEW = {
     const books = L.books || [], films = L.films || [], pieces = Ar.pieces || [];
     return `${title("me", A.hello || "Hey!", true)}
       ${A.tagline ? `<p class="lede">${esc(A.tagline)}</p>` : ""}
-      ${block("About me", `<div class="prose">${paras(A.intro)}</div>`, "", 0)}
+      ${block("About me", `<div class="prose">${paras(A.intro)}</div>${A.story ? `<a class="btn" href="#read-about-me">Read my whole story →</a>` : ""}`, "", 0)}
       ${block("Timeline", `<ol class="timeline">${(A.timeline || []).map(r => `<li><span class="mono muted">${esc(r.when)}</span><span><b>${esc(r.title)}</b>${r.where ? ` <span class="muted">· ${esc(r.where)}</span>` : ""}</span></li>`).join("")}</ol>`, "", 1)}
-      ${block("My hobbies", `<div class="cards">${(A.hobbies || []).map(h => `<div class="card"><h3>${esc(h.name)}</h3><p>${esc(h.text)}</p>${h.link ? `<a class="btn" href="${esc(h.link)}" target="_blank" rel="noopener">Follow along ↗</a>` : ""}</div>`).join("")}</div>
+      ${(C.archive.college || []).length ? block("College days", `${C.archive.college_line ? `<p class="s-line">${esc(C.archive.college_line)}</p>` : ""}<div class="cards">${C.archive.college.map(c => `<a class="card college" href="#read-${esc(c.slug)}">${c.cover ? `<span class="cover" style="background-image:url('${esc(src(c.cover))}')"></span>` : ""}<h3>${esc(c.title)}</h3><p>${esc(c.line)}</p></a>`).join("")}</div>`, "", 7) : ""}
+      ${block("My hobbies", `<div class="cards">${(A.hobbies || []).map(h => `<div class="card"><h3>${esc(h.name)}</h3><p>${esc(h.text)}</p>${h.link ? `<a class="btn" href="${esc(h.link)}"${ext(h.link)}>${ext(h.link) ? "Follow along ↗" : "Read more →"}</a>` : ""}</div>`).join("")}</div>
         ${pieces.length ? `<div class="mono muted" style="margin-top:8px">${esc(Ar.line || "From my easel")}</div><div class="gallery">${pieces.map((a, i) => `<button class="piece" data-i="${i}" aria-label="View ${esc(a.title)}"><span class="frame"><span class="mat"><span class="img" style="aspect-ratio:${SHAPE[a.shape] || "4/5"};${bg(a.photo, a.title)}"></span></span></span><span class="cap">${esc(a.title)}<i>${esc(a.year)}${a.medium ? " · " + esc(a.medium) : ""}</i></span></button>`).join("")}</div>` : ""}`, "", 2)}
-      ${block("Latest on the blog", postRows((M.posts || []).slice().sort(byDate).slice(0, 3), M.substack), `<a class="s-link" href="#blog">All posts →</a>`, 3)}
+      ${block("Latest on the blog", (M.posts || []).length ? postRows(M.posts.slice().sort(byDate).slice(0, 3), M.substack) : oldRows((C.archive.posts || []).slice().sort(byDate).slice(0, 3)).replace(/<div class="year">.*?<\/div>/g, ""), `<a class="s-link" href="#blog">All posts →</a>`, 3)}
       ${block("What I'm reading", `<div><div class="shelf">${books.map(spine).join("")}</div><div class="plank"></div></div><p class="note" id="book-note" aria-live="polite"></p>`, "", 4)}
       ${block("What I'm listening to", `<ul class="tunes">${(L.listening || []).map(t => `<li><span class="vinyl"></span><span>${t.url ? `<a href="${esc(t.url)}" target="_blank" rel="noopener"><b>${esc(t.title)}</b></a>` : `<b>${esc(t.title)}</b>`}${t.artist ? ` <span class="muted">· ${esc(t.artist)}</span>` : ""}</span></li>`).join("")}</ul>`, "", 5)}
       ${block("What I'm watching", `<div class="rack">${films.map((f, i) => `<button class="cd" data-i="${i}" aria-label="${esc(f.title)}, ${esc(f.score)} out of 10"><span class="disc"></span><span class="case" style="background:linear-gradient(160deg, ${pair(f.title)[0]}, ${pair(f.title)[1]})"><b>${esc(f.title)}</b></span></button>`).join("")}</div><p class="note" id="film-note" aria-live="polite"></p>`, "", 6)}`;
@@ -384,8 +406,20 @@ const VIEW = {
   blog() {
     const M = C.musings, Ac = C.archive;
     return `${title("blog", labelOf("blog"))}${M.line ? `<p class="lede">${esc(M.line)}</p>` : ""}
-      ${block("On Substack", postRows((M.posts || []).slice().sort(byDate), M.substack), out(M.substack, "Subscribe"), 0)}
-      ${(Ac.posts || []).length ? block("From the old blog", `${Ac.line ? `<p class="s-line">${esc(Ac.line)}</p>` : ""}${postRows((Ac.posts || []).slice().sort(byDate), "")}`, "", 1) : ""}`;
+      ${block("On Substack", (M.posts || []).length ? postRows(M.posts.slice().sort(byDate), M.substack) : `<p class="s-line">My Substack is coming soon.</p>`, out(M.substack, "Subscribe"), 0)}
+      ${(Ac.posts || []).length ? block("From the old blog", `${Ac.line ? `<p class="s-line">${esc(Ac.line)}</p>` : ""}${oldRows((Ac.posts || []).slice().sort(byDate))}`, `<span class="mono muted">${Ac.posts.length} posts</span>`, 1) : ""}`;
+  },
+  read(slug) {
+    const A = C.about, Ac = C.archive;
+    let item = (Ac.posts || []).find(p => p.slug === slug), back = ["blog", "Blog"];
+    if (!item) { item = (Ac.college || []).find(p => p.slug === slug); back = ["me", "Get to know me"]; }
+    if (!item && slug === "about-me" && A.story) { item = { title: "My whole story", body: A.story }; back = ["me", "Get to know me"]; }
+    if (!item) return `${title("blog", "Not found")}<p><a class="s-link" href="#blog">← Back to the blog</a></p>`;
+    return `<a class="s-link" href="#${back[0]}">← ${esc(labelOf(back[0]) || back[1])}</a>
+      <article class="post-body"><h1 class="post-title">${esc(item.title)}</h1>
+      ${item.date || item.tags ? `<div class="meta-line"><span class="mono muted">${fmt(item.date)}</span>${list(item.tags).map(x => `<span class="pill">${esc(x)}</span>`).join("")}</div>` : ""}
+      <div class="post-html">${String(item.body || "").replace(/src="\/+/g, 'src="')}</div></article>
+      <a class="s-link" href="#${back[0]}">← ${esc(labelOf(back[0]) || back[1])}</a>`;
   },
   projects() {
     const I = C.impact;
@@ -397,10 +431,12 @@ const VIEW = {
 /* ── routing: #me, #work, #travel, #podcast, #blog, #projects ── */
 function route() {
   if (!C) return;
-  const id = location.hash.slice(1), page = C.pages.some(p => p.page === id) ? id : (C.pages[0] || { page: "me" }).page;
-  const view = document.getElementById("view");
-  view.innerHTML = VIEW[page](); view.classList.remove("fade"); void view.offsetWidth; view.classList.add("fade");
+  const id = location.hash.slice(1), view = document.getElementById("view");
+  const reading = id.startsWith("read-") ? id.slice(5) : null;
+  const page = reading ? ((C.archive.posts || []).some(p => p.slug === reading) ? "blog" : "me") : C.pages.some(p => p.page === id) ? id : (C.pages[0] || { page: "me" }).page;
+  view.innerHTML = reading ? VIEW.read(reading) : VIEW[page](); view.classList.remove("fade"); void view.offsetWidth; view.classList.add("fade");
   document.querySelectorAll("#nav a").forEach(a => a.classList.toggle("on", a.dataset.id === page));
+  if (reading) { window.scrollTo(0, 0); return; }
   window.scrollTo(0, 0);
   if (page === "me") { typeHello(); showBook(); showFilm(); }
 }
@@ -418,7 +454,7 @@ function showBook(i) {
   if (i === undefined) { i = books.findIndex(b => b.shelf === "reading"); if (i < 0) i = 0; }
   const b = books[i];
   document.querySelectorAll(".spine").forEach(s => s.classList.toggle("on", +s.dataset.i === i));
-  note.innerHTML = `${esc(b.title)}, <i>${esc(b.author)}</i>${b.rating ? " · " + "★".repeat(b.rating) : b.shelf ? ` · <i>${esc(b.shelf)}</i>` : ""}<br><i>${esc(b.note)}</i>`;
+  note.innerHTML = `${esc(b.title)}, <i>${esc(b.author)}</i>${b.rating ? " · " + "★".repeat(b.rating) : b.shelf ? ` · <i>${esc(b.shelf)}</i>` : ""}<br><i>${esc(b.note)}</i>${b.review ? ` <a class="s-link" href="#read-${esc(b.review)}">Read my review →</a>` : ""}`;
 }
 function showFilm(i = 0) {
   const films = C.library.films || [], note = document.getElementById("film-note"); if (!note || !films.length) return;
@@ -436,7 +472,7 @@ document.getElementById("view").addEventListener("click", e => {
   const s = e.target.closest(".spine"); if (s) return showBook(+s.dataset.i);
   const c = e.target.closest(".cd"); if (c) return showFilm(+c.dataset.i);
   const p = e.target.closest(".pol"); if (p) { const t = C.travel.photos[+p.dataset.i]; return openLb(t.photo, t.place, "4/3", `${esc(t.place)} <i>· ${esc(t.when)}</i>${t.story ? `<br>${esc(t.story)}` : ""}`); }
-  const a = e.target.closest(".piece"); if (a) { const x = C.art.pieces[+a.dataset.i]; return openLb(x.photo, x.title, SHAPE[x.shape] || "4/5", `${esc(x.title)} <i>· ${esc(x.year)}${x.medium ? " · " + esc(x.medium) : ""}</i>`); }
+  const a = e.target.closest(".piece"); if (a) { const x = C.art.pieces[+a.dataset.i]; return openLb(x.photo, x.title, SHAPE[x.shape] || "4/5", `${esc(x.title)} <i>· ${esc(x.year)}${x.medium ? " · " + esc(x.medium) : ""}</i>${x.post ? ` · <a href="#read-${esc(x.post)}" onclick="document.getElementById('lb').close()">Read the post →</a>` : ""}`); }
 });
 document.getElementById("view").addEventListener("keydown", e => { const p = e.target.closest(".pol"); if (p && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); p.click(); } });
 
