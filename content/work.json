@@ -3,23 +3,18 @@
   "resume": "",
   "roles": [
     {
-      "title": "Undergraduate degree",
-      "where": "Your college",
-      "when": "2017 – 2021",
-      "link": ""
-    },
-    {
       "title": "Management Consultant",
       "where": "Your firm",
       "when": "2022 – now",
-      "link": ""
+      "what": "Strategy work across industries: research, workshops, and turning analysis into decisions."
     },
     {
-      "title": "MBA",
-      "where": "Business school",
-      "when": "2027 –",
-      "link": ""
+      "title": "Summer Intern",
+      "where": "Sample company",
+      "when": "2021",
+      "what": "A line about what you did and what you learned."
     }
   ],
-  "line": "The short version of my story so far."
+  "intro": "By day I'm a management consultant. I help teams untangle messy problems, find what matters, and tell a clear story about what to do next.",
+  "skills": "strategy, problem solving, storytelling, research, facilitation"
 }

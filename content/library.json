@@ -1,5 +1,4 @@
 {
-  "line": "What I read and watch. Tap a spine or a disc.",
   "books": [
     {
       "title": "Co-Intelligence",
@@ -89,6 +88,23 @@
       "year": 2003,
       "score": 8,
       "note": "Loneliness in a beautiful city."
+    }
+  ],
+  "listening": [
+    {
+      "title": "Roja",
+      "artist": "A. R. Rahman",
+      "url": ""
+    },
+    {
+      "title": "Lex Fridman Podcast",
+      "artist": "Lex Fridman",
+      "url": ""
+    },
+    {
+      "title": "Blue",
+      "artist": "Joni Mitchell",
+      "url": ""
     }
   ]
 }

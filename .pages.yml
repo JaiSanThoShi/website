@@ -5,11 +5,22 @@ media:
 
 content:
   - name: settings
-    label: ✦ Site design (layout, fonts, colours)
+    label: ✦ Site design (pages, fonts, colours)
     type: file
     path: content/settings.json
     format: json
     fields:
+      - name: pages
+        label: Pages in the side panel (drag to reorder, untick to hide)
+        type: object
+        list: true
+        fields:
+          - name: page
+            label: Page
+            type: select
+            options: { values: [me, work, travel, podcast, blog, projects] }
+          - { name: label, label: Name in the side panel, type: string }
+          - { name: show, label: Show on the site, type: boolean }
       - name: font
         label: Font
         type: select
@@ -19,18 +30,18 @@ content:
         type: select
         options: { values: [small, medium, large] }
       - name: accent
-        label: Accent colour (links, underlines, cursor)
+        label: Starting accent colour (visitors can change it with the dot)
         type: select
         options: { values: [terracotta, plum, forest, ink blue, rose, ochre, charcoal] }
       - name: background
-        label: Background
+        label: Morning background
         type: select
-        options: { values: [white, cream, warm grey, blush] }
+        options: { values: [cream, white, warm grey, blush] }
       - name: width
         label: Page width
         type: select
         options: { values: [narrow, medium, wide] }
-      - { name: fairy_lights, label: Fairy lights under the menu, type: boolean }
+      - { name: fairy_lights, label: Fairy lights along the top, type: boolean }
       - { name: typewriter, label: Type out the greeting, type: boolean }
       - { name: painted_dots, label: Painted dot before each heading, type: boolean }
       - name: photo_wall
@@ -38,62 +49,72 @@ content:
         type: select
         options: { values: [pegged on strings, simple grid] }
       - name: gallery_columns
-        label: Art gallery columns
+        label: Painting gallery columns
         type: select
         options: { values: ["2", "3"] }
-      - name: sections
-        label: Sections (drag to reorder, untick to hide)
-        type: object
-        list: true
-        fields:
-          - name: section
-            label: Section
-            type: select
-            options: { values: [musings, library, travel, art, ground-up, fitness, impact, work, archive] }
-          - { name: label, label: Section heading, type: string }
-          - { name: menu, label: Short name in the top menu, type: string }
-          - { name: show, label: Show on the site, type: boolean }
 
   - name: about
-    label: About me (top of the page)
+    label: "Get to know me: about, timeline, hobbies"
     type: file
     path: content/about.json
     format: json
     fields:
-      - { name: name, label: Your name, type: string }
-      - { name: hello, label: "Greeting (typed out at the top)", type: string }
-      - { name: tagline, label: One-line description under it, type: string }
-      - name: intro
-        label: Intro
+      - { name: name, label: Your full name, type: string }
+      - name: panel
+        label: Short hello in the side panel
         type: text
-        description: "Leave a blank line between paragraphs. Wrap words in ==double equals== to highlight them."
-      - { name: email, label: Email shown on the site, type: string }
+        description: "Wrap your name in ==double equals== to colour it."
+      - { name: hello, label: "Greeting at the top (typed out)", type: string }
+      - { name: tagline, label: One line under the greeting, type: string }
+      - name: intro
+        label: About me
+        type: text
+        description: "Leave a blank line between paragraphs. Wrap words in ==double equals== for a watercolour brushstroke."
+      - { name: email, label: Email shown in the side panel, type: string }
+      - name: timeline
+        label: Timeline
+        type: object
+        list: true
+        fields:
+          - { name: when, label: "When (e.g. 2017 – 2021)", type: string }
+          - { name: title, label: What, type: string, required: true }
+          - { name: where, label: Where, type: string }
+      - name: hobbies
+        label: Hobbies
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Hobby, type: string, required: true }
+          - { name: text, label: A line or two, type: text }
+          - { name: link, label: "Link (e.g. your Instagram)", type: string }
 
-  - name: musings
-    label: Musings (Substack posts)
+  - name: art
+    label: "Get to know me: paintings"
     type: file
-    path: content/musings.json
+    path: content/art.json
     format: json
     fields:
-      - { name: line, label: Line under the heading, type: string }
-      - { name: substack, label: Your Substack link, type: string }
-      - name: posts
-        label: Posts
+      - { name: line, label: Small heading above the paintings, type: string }
+      - name: pieces
+        label: Paintings
         type: object
         list: true
         fields:
           - { name: title, label: Title, type: string, required: true }
-          - { name: date, label: Date, type: date }
-          - { name: url, label: Link to the post on Substack, type: string }
-          - { name: tags, label: "Tags, separated by commas", type: string }
+          - { name: year, label: Year, type: number }
+          - { name: medium, label: "Medium (e.g. acrylic)", type: string }
+          - name: shape
+            label: Shape
+            type: select
+            options: { values: [portrait, square, landscape] }
+          - { name: photo, label: Photo of the painting, type: image }
 
   - name: library
-    label: Library (books and films)
+    label: "Get to know me: reading, listening, watching"
     type: file
     path: content/library.json
     format: json
     fields:
-      - { name: line, label: Line under the heading, type: string }
       - name: books
         label: Books
         type: object
@@ -107,8 +128,16 @@ content:
             options: { values: [reading, read, someday] }
           - { name: rating, label: "Rating (0 to 5, 0 = no stars)", type: number }
           - { name: note, label: One line on it, type: string }
+      - name: listening
+        label: Listening to
+        type: object
+        list: true
+        fields:
+          - { name: title, label: "Song, album or podcast", type: string, required: true }
+          - { name: artist, label: Artist or host, type: string }
+          - { name: url, label: "Link (Spotify, YouTube…)", type: string }
       - name: films
-        label: Films
+        label: Watching
         type: object
         list: true
         fields:
@@ -117,8 +146,31 @@ content:
           - { name: score, label: "Score out of 10", type: number }
           - { name: note, label: One line on it, type: string }
 
+  - name: work
+    label: My 9–5
+    type: file
+    path: content/work.json
+    format: json
+    fields:
+      - name: intro
+        label: What you do
+        type: text
+      - { name: linkedin, label: LinkedIn link, type: string }
+      - { name: resume, label: Résumé (PDF), type: file }
+      - { name: skills, label: "What you're good at, separated by commas", type: string }
+      - name: roles
+        label: Where you've worked
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Role, type: string, required: true }
+          - { name: where, label: Company, type: string }
+          - { name: when, label: "When (e.g. 2022 – now)", type: string }
+          - { name: what, label: What you did, type: text }
+          - { name: link, label: Link (optional), type: string }
+
   - name: travel
-    label: Travel (photo wall)
+    label: Travel
     type: file
     path: content/travel.json
     format: json
@@ -134,29 +186,8 @@ content:
           - { name: photo, label: Photo, type: image }
           - { name: story, label: A line or two about it, type: text }
 
-  - name: art
-    label: Art (gallery)
-    type: file
-    path: content/art.json
-    format: json
-    fields:
-      - { name: line, label: Line under the heading, type: string }
-      - name: pieces
-        label: Paintings
-        type: object
-        list: true
-        fields:
-          - { name: title, label: Title, type: string, required: true }
-          - { name: year, label: Year, type: number }
-          - { name: medium, label: "Medium (e.g. acrylic)", type: string }
-          - name: shape
-            label: Shape
-            type: select
-            options: { values: [portrait, square, landscape] }
-          - { name: photo, label: Photo of the painting, type: image }
-
   - name: podcast
-    label: Ground Up (podcast)
+    label: Podcast
     type: file
     path: content/podcast.json
     format: json
@@ -174,17 +205,42 @@ content:
           - { name: guest, label: Guest, type: string }
           - { name: url, label: Link to the episode, type: string }
 
-  - name: fitness
-    label: Fitness
+  - name: musings
+    label: "Blog: Substack posts"
     type: file
-    path: content/fitness.json
+    path: content/musings.json
     format: json
     fields:
-      - { name: text, label: A few lines, type: text }
-      - { name: instagram, label: Instagram link, type: string }
+      - { name: line, label: Line under the heading, type: string }
+      - { name: substack, label: Your Substack link, type: string }
+      - name: posts
+        label: Posts
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: date, label: Date, type: date }
+          - { name: url, label: Link to the post on Substack, type: string }
+          - { name: tags, label: "Tags, separated by commas", type: string }
+
+  - name: archive
+    label: "Blog: old posts"
+    type: file
+    path: content/archive.json
+    format: json
+    fields:
+      - { name: line, label: Line under the heading, type: string }
+      - name: posts
+        label: Old posts
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: date, label: Date, type: date }
+          - { name: url, label: Link (optional), type: string }
 
   - name: impact
-    label: Projects & impact
+    label: Projects
     type: file
     path: content/impact.json
     format: json
@@ -198,39 +254,4 @@ content:
           - { name: title, label: Name, type: string, required: true }
           - { name: what, label: What it is, type: string }
           - { name: when, label: "Year (e.g. 2026)", type: string }
-          - { name: url, label: Link (optional), type: string }
-
-  - name: work
-    label: Work (timeline)
-    type: file
-    path: content/work.json
-    format: json
-    fields:
-      - { name: line, label: Line under the heading, type: string }
-      - { name: linkedin, label: LinkedIn link, type: string }
-      - { name: resume, label: Résumé (PDF), type: file }
-      - name: roles
-        label: Roles and degrees
-        type: object
-        list: true
-        fields:
-          - { name: title, label: Title, type: string, required: true }
-          - { name: where, label: Where, type: string }
-          - { name: when, label: "When (e.g. 2022 – now)", type: string }
-          - { name: link, label: Link (optional), type: string }
-
-  - name: archive
-    label: Archive (old blog)
-    type: file
-    path: content/archive.json
-    format: json
-    fields:
-      - { name: line, label: Line under the heading, type: string }
-      - name: posts
-        label: Old posts
-        type: object
-        list: true
-        fields:
-          - { name: title, label: Title, type: string, required: true }
-          - { name: date, label: Date, type: date }
           - { name: url, label: Link (optional), type: string }

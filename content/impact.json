@@ -7,11 +7,17 @@
       "url": ""
     },
     {
+      "title": "This website",
+      "what": "Built with Claude. Every page is a small experiment.",
+      "when": "2026",
+      "url": ""
+    },
+    {
       "title": "Sample project",
       "what": "A line on what you did and who it helped",
       "when": "2024",
       "url": ""
     }
   ],
-  "line": "Things I've built or helped with for causes I care about."
+  "line": "Things I've built or helped with, mostly for causes I care about."
 }

@@ -2,66 +2,42 @@
   "font": "book antiqua",
   "text_size": "medium",
   "accent": "terracotta",
-  "background": "white",
+  "background": "cream",
   "width": "medium",
   "fairy_lights": true,
   "typewriter": true,
   "painted_dots": true,
   "photo_wall": "pegged on strings",
   "gallery_columns": "3",
-  "sections": [
+  "pages": [
     {
-      "section": "work",
-      "label": "A brief timeline",
-      "menu": "Timeline",
+      "page": "me",
+      "label": "Get to know me",
       "show": true
     },
     {
-      "section": "musings",
-      "label": "Latest musings",
-      "menu": "Musings",
+      "page": "work",
+      "label": "My 9–5",
       "show": true
     },
     {
-      "section": "library",
-      "label": "Library",
-      "menu": "Library",
-      "show": true
-    },
-    {
-      "section": "travel",
+      "page": "travel",
       "label": "Travel",
-      "menu": "Travel",
       "show": true
     },
     {
-      "section": "art",
-      "label": "Art",
-      "menu": "Art",
+      "page": "podcast",
+      "label": "Podcast",
       "show": true
     },
     {
-      "section": "ground-up",
-      "label": "Ground Up",
-      "menu": "Ground Up",
+      "page": "blog",
+      "label": "Blog",
       "show": true
     },
     {
-      "section": "impact",
-      "label": "Projects & impact",
-      "menu": "Projects",
-      "show": true
-    },
-    {
-      "section": "fitness",
-      "label": "Fitness",
-      "menu": "Fitness",
-      "show": true
-    },
-    {
-      "section": "archive",
-      "label": "Archive",
-      "menu": "Archive",
+      "page": "projects",
+      "label": "Projects",
       "show": true
     }
   ]

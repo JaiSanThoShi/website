@@ -1,7 +1,47 @@
 {
   "name": "Jai Santhoshi Sathish Kumar",
   "hello": "Hey, I'm Santhoshi!",
-  "intro": "I'm Jai Santhoshi, a ==management consultant== who paints on Sundays, co-hosts ==Ground Up==, and is moving soon for ==business school==. This is my little corner of the internet.",
+  "intro": "I'm Jai Santhoshi, a ==management consultant== who paints on Sundays, co-hosts ==Ground Up==, and is moving soon for ==business school==.\n\nI like big questions, small details, long walks and good chai. This site is where I keep the things I make, read, watch and think about.",
   "email": "hello@yourdomain.com",
-  "tagline": "Management consultant, Sunday painter, podcast co-host."
+  "tagline": "Management consultant, Sunday painter, podcast co-host.",
+  "panel": "I'm ==Santhoshi==, a consultant who paints on Sundays and talks to builders on a podcast. Welcome to my corner of the internet.",
+  "timeline": [
+    {
+      "when": "2017 – 2021",
+      "title": "Undergraduate degree",
+      "where": "Your college"
+    },
+    {
+      "when": "2022 – now",
+      "title": "Management Consultant",
+      "where": "Your firm"
+    },
+    {
+      "when": "2026",
+      "title": "Started Ground Up",
+      "where": "with Tharun"
+    },
+    {
+      "when": "2027 –",
+      "title": "MBA",
+      "where": "Business school"
+    }
+  ],
+  "hobbies": [
+    {
+      "name": "Painting",
+      "text": "Sundays are for acrylics and watercolours. A few favourites are below.",
+      "link": ""
+    },
+    {
+      "name": "Running",
+      "text": "Slow and steady, mostly in running shoes. First 10K done, half marathon next.",
+      "link": "https://www.instagram.com/"
+    },
+    {
+      "name": "Reading & films",
+      "text": "Always halfway through a book and a film. See what's on my shelf below.",
+      "link": ""
+    }
+  ]
 }
